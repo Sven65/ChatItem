@@ -1,5 +1,16 @@
 // TODO: Make this work with essentialschat
 // TODO: Make this replace all [item] tags
+// TODO: Make this do vanillatweaks heads
+// TODO: Add [i] shortcut
+// TODO: Add [hand] shortcut
+// TODO: Add [offhand]
+// TODO: Add [helmet]
+// TODO: Add [chestplate]
+// TODO: Add [legs]
+// TODO: Add [boots]
+// TODO: Heart of the sea
+// Todo: Books
+
 package xyz.mackan.ChatItem;
 
 import me.pikamug.localelib.LocaleLib;
