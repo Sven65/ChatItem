@@ -1,7 +1,10 @@
 package xyz.mackan.ChatItem.util;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import xyz.mackan.ChatItem.ChatItem;
 import xyz.mackan.ChatItem.util.ReflectionUtil;
 
 import java.lang.reflect.InvocationTargetException;
@@ -41,5 +44,26 @@ public class ItemUtil {
 
 		// Return a string representation of the serialized object
 		return itemAsJsonObject.toString();
+	}
+
+	public static String getTranslatableMaterialName (ItemStack item) {
+		return ChatItem.getLocaleManager().queryMaterial(item.getType());
+	}
+
+	public static String getItemMetaName (ItemStack item) {
+		ItemMeta meta = item.getItemMeta();
+		boolean hasItemMeta = item.hasItemMeta();
+
+		if (!hasItemMeta) {
+			return null;
+		} else {
+			String displayName = meta.getDisplayName();
+
+			if (displayName == null || displayName.equals("")) {
+				return null;
+			}
+
+			return displayName;
+		}
 	}
 }

@@ -23,9 +23,16 @@
 
     <repositories>
         <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+            <name>jitpack</name>
+        </repository>
+        <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+            <name>spigot</name>
         </repository>
+
     </repositories>
 
     <dependencies>
@@ -34,6 +41,11 @@
             <artifactId>spigot-api</artifactId>
             <version>1.16.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.PikaMug</groupId>
+            <artifactId>LocaleLib</artifactId>
+            <version>af35481</version>
         </dependency>
     </dependencies>
 </project>

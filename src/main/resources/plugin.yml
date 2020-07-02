@@ -3,3 +3,4 @@ version: 1.0.0
 main: xyz.mackan.ChatItem.ChatItem
 description: A plugin that lets you show items in chat
 author: Mackan
+depend: [LocaleLib]
