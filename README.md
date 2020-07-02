@@ -1,2 +1,2 @@
-# ChatItem
-ChatItem plugin for Spigot
+# xyz.mackan.ChatItem.ChatItem
+xyz.mackan.ChatItem.ChatItem plugin for Spigot

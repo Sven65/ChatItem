@@ -1,4 +1,4 @@
-name: ChatItem
+name: xyz.mackan.ChatItem.ChatItem
 version: 1.0.0
 main: xyz.mackan.ChatItem.ChatItem
 description: A plugin that lets you show items in chat
