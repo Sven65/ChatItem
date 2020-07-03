@@ -34,10 +34,6 @@ public class PlayerChatEventListener implements Listener {
 			return;
 		}
 
-
-
-
-
 		TextComponent component = new TextComponent(player.getDisplayName()+"> ");
 
 		String itemPattern = "\\[item\\]";
@@ -60,29 +56,7 @@ public class PlayerChatEventListener implements Listener {
 
 			component.addExtra(start);
 
-
-			BaseComponent item = null;
-
-			String itemMetaName = ItemUtil.getItemMetaName(itemInHand);
-
-			if (itemMetaName != null) {
-				item = new TextComponent(itemMetaName);
-			} else {
-				item = new TranslatableComponent(ItemUtil.getTranslatableMaterialName(itemInHand));
-
-			}
-
-			String itemJson = ItemUtil.convertItemStackToJson(itemInHand);
-
-			BaseComponent[] hoverEventComponents = new BaseComponent[]{
-				new TextComponent(itemJson)
-			};
-
-			item.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_ITEM, hoverEventComponents));
-			item.setColor(ChatColor.AQUA);
-
-
-			component.addExtra(item);
+			component.addExtra(ItemUtil.getItemComponent(itemInHand));
 
 			component.addExtra(end);
 		}

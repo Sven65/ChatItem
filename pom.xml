@@ -45,7 +45,7 @@
         <dependency>
             <groupId>com.github.PikaMug</groupId>
             <artifactId>LocaleLib</artifactId>
-            <version>af35481</version>
+            <version>1.6</version>
         </dependency>
     </dependencies>
 </project>

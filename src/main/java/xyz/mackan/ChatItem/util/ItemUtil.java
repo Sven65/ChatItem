@@ -1,12 +1,19 @@
 package xyz.mackan.ChatItem.util;
 
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.TranslatableComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import xyz.mackan.ChatItem.ChatItem;
 import xyz.mackan.ChatItem.util.ReflectionUtil;
 
+import java.awt.print.Book;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.logging.Level;
@@ -57,6 +64,13 @@ public class ItemUtil {
 		if (!hasItemMeta) {
 			return null;
 		} else {
+
+			if (item.getType() == Material.WRITTEN_BOOK) {
+				BookMeta bookMeta = (BookMeta) meta;
+
+				return bookMeta.getTitle();
+			}
+
 			String displayName = meta.getDisplayName();
 
 			if (displayName == null || displayName.equals("")) {
@@ -65,5 +79,29 @@ public class ItemUtil {
 
 			return displayName;
 		}
+	}
+
+	public static BaseComponent getItemComponent (ItemStack itemStack) {
+		BaseComponent item = null;
+
+		String itemMetaName = ItemUtil.getItemMetaName(itemStack);
+
+		if (itemMetaName != null) {
+			item = new TextComponent(itemMetaName);
+		} else {
+			item = new TranslatableComponent(ItemUtil.getTranslatableMaterialName(itemStack));
+
+		}
+
+		String itemJson = ItemUtil.convertItemStackToJson(itemStack);
+
+		BaseComponent[] hoverEventComponents = new BaseComponent[]{
+				new TextComponent(itemJson)
+		};
+
+		item.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_ITEM, hoverEventComponents));
+		item.setColor(ChatColor.AQUA);
+
+		return item;
 	}
 }
