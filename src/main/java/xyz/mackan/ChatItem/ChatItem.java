@@ -1,6 +1,4 @@
 // TODO: Make this work with essentialschat
-// TODO: Make this replace all [item] tags
-// TODO: Make this do vanillatweaks heads
 
 // TODO: Add [i] shortcut
 // TODO: Add [hand] shortcut
