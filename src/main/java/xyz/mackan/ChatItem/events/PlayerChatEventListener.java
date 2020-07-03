@@ -1,10 +1,6 @@
 package xyz.mackan.ChatItem.events;
 
-import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.md_5.bungee.api.chat.TranslatableComponent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,9 +11,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import xyz.mackan.ChatItem.ChatItem;
 import xyz.mackan.ChatItem.StringPosition;
+import xyz.mackan.ChatItem.util.FormatUtil;
 import xyz.mackan.ChatItem.util.ItemUtil;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -29,6 +25,8 @@ public class PlayerChatEventListener implements Listener {
 		String message = event.getMessage();
 		Player player = event.getPlayer();
 
+		String format = event.getFormat();
+
 		PlayerInventory inventory = player.getInventory();
 
 		ItemStack itemInHand = inventory.getItemInMainHand();
@@ -37,7 +35,7 @@ public class PlayerChatEventListener implements Listener {
 			return;
 		}
 
-		TextComponent component = new TextComponent(player.getDisplayName()+"> ");
+		TextComponent component = new TextComponent(String.format(format, player.getDisplayName(), ""));
 
 		String itemPattern = "\\[item\\]";
 
@@ -80,13 +78,20 @@ public class PlayerChatEventListener implements Listener {
 				end = message.substring(current.end);
 			}
 
-			component.addExtra(start.replaceAll(itemPattern, ""));
+			start = start.replaceAll(itemPattern, "");
+			end = end.replaceAll(itemPattern, "");
+
+			if (ChatItem.getIsEssChatEnabled()) {
+				start = FormatUtil.formatMessage(player, start);
+				end = FormatUtil.formatMessage(player, end);
+			}
+
+			component.addExtra(start);
 
 			component.addExtra(ItemUtil.getItemComponent(itemInHand));
 
-			component.addExtra(end.replaceAll(itemPattern, ""));
+			component.addExtra(end);
 		}
-
 
 		if (count > 0) {
 			event.getRecipients().forEach((Player recipient) -> {

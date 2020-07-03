@@ -1,5 +1,3 @@
-// TODO: Make this work with essentialschat
-
 // TODO: Add [i] shortcut
 // TODO: Add [hand] shortcut
 // TODO: Add [offhand]
@@ -17,10 +15,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ChatItem extends JavaPlugin {
 	private static LocaleManager localeManager;
+	private static boolean isEssChatEnabled;
 
 	public static LocaleManager getLocaleManager () {
 		return localeManager;
 	}
+	public static boolean getIsEssChatEnabled () { return isEssChatEnabled; }
 
 	@Override
 	public void onEnable() {
@@ -29,6 +29,10 @@ public class ChatItem extends JavaPlugin {
 
 		LocaleLib localeLib = (LocaleLib) getServer().getPluginManager().getPlugin("LocaleLib");
 		localeManager = localeLib.getLocaleManager();
+
+		isEssChatEnabled = getServer().getPluginManager().getPlugin("EssentialsChat") != null;
+
+		getLogger().info("[ChatItem] Is EssentialsChat enabled: "+isEssChatEnabled);
 	}
 
 	@Override
