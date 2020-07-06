@@ -10,11 +10,9 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.inventory.meta.ItemMeta;
-import xyz.mackan.ChatItem.ChatItem;
-import xyz.mackan.ChatItem.util.ReflectionUtil;
 
-import java.awt.print.Book;
-import java.lang.reflect.InvocationTargetException;
+import xyz.mackan.ChatItem.ChatItem;
+
 import java.lang.reflect.Method;
 import java.util.logging.Level;
 
@@ -64,10 +62,8 @@ public class ItemUtil {
 		if (!hasItemMeta) {
 			return null;
 		} else {
-
 			if (item.getType() == Material.WRITTEN_BOOK) {
 				BookMeta bookMeta = (BookMeta) meta;
-
 				return bookMeta.getTitle();
 			}
 

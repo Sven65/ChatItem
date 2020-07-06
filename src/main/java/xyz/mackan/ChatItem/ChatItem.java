@@ -1,10 +1,5 @@
-// TODO: Add [i] shortcut
-// TODO: Add [hand] shortcut
-// TODO: Add [offhand]
-// TODO: Add [helmet]
-// TODO: Add [chestplate]
-// TODO: Add [legs]
-// TODO: Add [boots]
+// TODO: Potion names (Item types: POTION, LINGERING_POTION, SPLASH_POTION)
+// TODO: Names of player heads (Item type: PLAYER_HEAD)
 
 package xyz.mackan.ChatItem;
 

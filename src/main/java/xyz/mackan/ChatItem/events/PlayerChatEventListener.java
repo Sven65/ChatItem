@@ -10,6 +10,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import xyz.mackan.ChatItem.ChatItem;
+import xyz.mackan.ChatItem.PatternType;
 import xyz.mackan.ChatItem.StringPosition;
 import xyz.mackan.ChatItem.util.FormatUtil;
 import xyz.mackan.ChatItem.util.ItemUtil;
@@ -20,6 +21,29 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PlayerChatEventListener implements Listener {
+	public List<StringPosition> getStringPositions (String message) {
+		List<StringPosition> stringPositions = new ArrayList<StringPosition>();
+		for (PatternType type : PatternType.values()) {
+			Pattern r = Pattern.compile(type.pattern);
+
+			Matcher m = r.matcher(message);
+
+			while (m.find()) {
+				stringPositions.add(new StringPosition(m.start(), m.end(), type));
+			}
+		}
+
+		return stringPositions;
+	}
+
+	public boolean shouldContinue (ItemStack itemStack) {
+		if (itemStack == null || itemStack.getData().getItemType() == Material.AIR) {
+			return true;
+		}
+
+		return false;
+	}
+
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPlayerChat (AsyncPlayerChatEvent event) {
 		String message = event.getMessage();
@@ -30,33 +54,46 @@ public class PlayerChatEventListener implements Listener {
 		PlayerInventory inventory = player.getInventory();
 
 		ItemStack itemInHand = inventory.getItemInMainHand();
+		ItemStack itemInOffHand = inventory.getItemInOffHand();
 
-		if (itemInHand == null || itemInHand.getData().getItemType() == Material.AIR) {
-			return;
-		}
+		ItemStack boots = inventory.getBoots();
+		ItemStack helmet = inventory.getHelmet();
+		ItemStack chestplate = inventory.getChestplate();
+		ItemStack legs = inventory.getLeggings();
 
 		TextComponent component = new TextComponent(String.format(format, player.getDisplayName(), ""));
 
-		String itemPattern = "\\[item\\]";
+		List<StringPosition> itemPositions = getStringPositions(message);
 
-		Pattern r = Pattern.compile(itemPattern);
-
-		Matcher m = r.matcher(message);
-
-		int count = 0;
-
-		// I'm sure there's a better way to do this, but this works.
-		List<StringPosition> itemPositions = new ArrayList<StringPosition>();
-
-		while (m.find()) {
-			count++;
-			itemPositions.add(new StringPosition(m.start(), m.end()));
+		if (itemInHand == null || itemInHand.getData().getItemType() == Material.AIR) {
+			return;
 		}
 
 
 		for (int i = 0;i<itemPositions.size();i++) {
 			StringPosition current = itemPositions.get(i);
 			StringPosition next = null;
+
+			ItemStack itemToCheck = null;
+
+			switch (current.patternType.type) {
+				case "HAND": itemToCheck = itemInHand;
+					break;
+				case "OFFHAND": itemToCheck = itemInOffHand;
+					break;
+				case "HELMET": itemToCheck = helmet;
+					break;
+				case "CHESTPLATE": itemToCheck = chestplate;
+					break;
+				case "LEGS": itemToCheck = legs;
+					break;
+				case "BOOTS": itemToCheck = boots;
+					break;
+			}
+
+			if (shouldContinue(itemToCheck)) {
+				continue;
+			}
 
 			if (i + 1 < itemPositions.size()) {
 				next = itemPositions.get(i + 1);
@@ -78,8 +115,8 @@ public class PlayerChatEventListener implements Listener {
 				end = message.substring(current.end);
 			}
 
-			start = start.replaceAll(itemPattern, "");
-			end = end.replaceAll(itemPattern, "");
+			start = start.replaceAll(current.patternType.pattern, "");
+			end = end.replaceAll(current.patternType.pattern, "");
 
 			if (ChatItem.getIsEssChatEnabled()) {
 				start = FormatUtil.formatMessage(player, start);
@@ -88,12 +125,12 @@ public class PlayerChatEventListener implements Listener {
 
 			component.addExtra(start);
 
-			component.addExtra(ItemUtil.getItemComponent(itemInHand));
+			component.addExtra(ItemUtil.getItemComponent(itemToCheck));
 
 			component.addExtra(end);
 		}
 
-		if (count > 0) {
+		if (itemPositions.size() > 0) {
 			event.getRecipients().forEach((Player recipient) -> {
 				recipient.spigot().sendMessage(component);
 			});
