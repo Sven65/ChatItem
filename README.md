@@ -1,2 +1,2 @@
-# xyz.mackan.ChatItem.ChatItem
-xyz.mackan.ChatItem.ChatItem plugin for Spigot
+# [ChatItems]
+Show your items in chat!
