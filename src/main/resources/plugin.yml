@@ -1,7 +1,11 @@
 name: xyz.mackan.ChatItem.ChatItem
-version: 1.0.1
+version: 1.0.2
 main: xyz.mackan.ChatItem.ChatItem
 description: A plugin that lets you show items in chat
 author: Mackan
 depend: [LocaleLib]
 api-version: 1.16
+commands:
+  ci:
+    description: Shows information about [ChatItems]
+    usage: /<command>
