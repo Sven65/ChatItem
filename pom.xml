@@ -6,9 +6,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>xyz.mackan</groupId>
-    <artifactId>ChatItem</artifactId>
-    <version>1.0.2</version>
+    <artifactId>ChatItems</artifactId>
+    <version>1.0.3</version>
+    <description>A plugin that lets you show items in chat</description>
+    <name>ChatItems</name>
+
     <build>
+        <finalName>ChatItems-${version}</finalName>
+        <resources>
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>true</filtering>
+                <directory>${basedir}/src/main/resources/</directory>
+                <includes>
+                    <include>plugin.yml</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -19,7 +33,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>ChatItem-${version}</finalName>
     </build>
 
     <repositories>
@@ -28,12 +41,6 @@
             <url>https://jitpack.io</url>
             <name>jitpack</name>
         </repository>
-        <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-            <name>spigot</name>
-        </repository>
-
     </repositories>
 
     <dependencies>

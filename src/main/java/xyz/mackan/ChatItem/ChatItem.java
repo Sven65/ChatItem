@@ -5,7 +5,11 @@ package xyz.mackan.ChatItem;
 
 import me.pikamug.localelib.LocaleLib;
 import me.pikamug.localelib.LocaleManager;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginDescriptionFile;
+import org.yaml.snakeyaml.Yaml;
 import xyz.mackan.ChatItem.commands.ChatItemCommand;
 import xyz.mackan.ChatItem.events.PlayerChatEventListener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,9 +27,23 @@ public class ChatItem extends JavaPlugin {
 
 	public static PluginDescriptionFile getDescriptionFile () { return descriptionFile; }
 
+	public static ConfigHolder configHolder = new ConfigHolder();
+
+	public void loadConfig () {
+		FileConfiguration config = this.getConfig();
+
+		configHolder.multiple = config.getBoolean("showQuantities.multiple", true);
+		configHolder.singleItems = config.getBoolean("showQuantities.singleItems", false);
+	}
+
 	@Override
 	public void onEnable() {
 		getLogger().info("[ChatItem] is enabled.");
+
+		this.saveDefaultConfig();
+
+		loadConfig();
+
 		getServer().getPluginManager().registerEvents(new PlayerChatEventListener(), this);
 
 		LocaleLib localeLib = (LocaleLib) getServer().getPluginManager().getPlugin("LocaleLib");

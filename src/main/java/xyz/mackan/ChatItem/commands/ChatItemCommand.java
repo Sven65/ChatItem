@@ -12,6 +12,8 @@ public class ChatItemCommand implements CommandExecutor {
 		boolean isEssChatEnabled = ChatItem.getIsEssChatEnabled();
 
 		sender.sendMessage("[ChatItems] Version "+version+"\nIs ess chat enabled: "+isEssChatEnabled);
+		sender.sendMessage("Show amount for single items: "+ChatItem.configHolder.singleItems);
+		sender.sendMessage("Show amount for multiple items: "+ChatItem.configHolder.multiple);
 
 		return true;
 	}

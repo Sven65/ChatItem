@@ -1,7 +1,7 @@
-name: xyz.mackan.ChatItem.ChatItem
-version: 1.0.2
+name: ${project.name}
+version: ${project.version}
 main: xyz.mackan.ChatItem.ChatItem
-description: A plugin that lets you show items in chat
+description: ${project.description}
 author: Mackan
 depend: [LocaleLib]
 api-version: 1.16

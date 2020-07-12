@@ -78,15 +78,38 @@ public class ItemUtil {
 	}
 
 	public static BaseComponent getItemComponent (ItemStack itemStack) {
+		int itemAmount = itemStack.getAmount();
+
 		BaseComponent item = null;
 
 		String itemMetaName = ItemUtil.getItemMetaName(itemStack);
 
 		if (itemMetaName != null) {
-			item = new TextComponent(itemMetaName);
-		} else {
-			item = new TranslatableComponent(ItemUtil.getTranslatableMaterialName(itemStack));
+			String displayName = itemMetaName;
 
+			if (itemAmount == 1 && ChatItem.configHolder.singleItems) {
+				displayName = "1 x "+itemMetaName;
+			}
+
+			if (itemAmount > 1 && ChatItem.configHolder.multiple) {
+				displayName = itemAmount + " x "+itemMetaName;
+			}
+
+			item = new TextComponent(displayName);
+		} else {
+			BaseComponent itemComponent = new TextComponent();
+
+			if (itemAmount == 1 && ChatItem.configHolder.singleItems) {
+				itemComponent = new TextComponent("1 x ");
+			}
+
+			if (itemAmount > 1 && ChatItem.configHolder.multiple) {
+				itemComponent = new TextComponent(""+itemAmount+" x ");
+			}
+
+			itemComponent.addExtra(new TranslatableComponent(ItemUtil.getTranslatableMaterialName(itemStack)));
+
+			item = itemComponent;
 		}
 
 		String itemJson = ItemUtil.convertItemStackToJson(itemStack);
