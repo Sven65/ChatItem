@@ -4,8 +4,9 @@ main: xyz.mackan.ChatItem.ChatItem
 description: ${project.description}
 author: Mackan
 depend: [LocaleLib]
+softdepend: [Vault]
 api-version: 1.16
 commands:
   ci:
-    description: Shows information about [ChatItems]
+    description: Shows information about ChatItem.
     usage: /<command>
