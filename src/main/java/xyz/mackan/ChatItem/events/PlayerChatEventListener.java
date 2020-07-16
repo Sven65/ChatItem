@@ -1,5 +1,6 @@
 package xyz.mackan.ChatItem.events;
 
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -37,7 +38,7 @@ public class PlayerChatEventListener implements Listener {
 	}
 
 	public boolean shouldContinue (ItemStack itemStack) {
-		if (itemStack == null || itemStack.getData().getItemType() == Material.AIR) {
+		if (itemStack == null || itemStack.getType() == Material.AIR) {
 			return true;
 		}
 
@@ -49,8 +50,6 @@ public class PlayerChatEventListener implements Listener {
 		String message = event.getMessage();
 		Player player = event.getPlayer();
 
-		String format = event.getFormat();
-
 		PlayerInventory inventory = player.getInventory();
 
 		ItemStack itemInHand = inventory.getItemInMainHand();
@@ -61,11 +60,22 @@ public class PlayerChatEventListener implements Listener {
 		ItemStack chestplate = inventory.getChestplate();
 		ItemStack legs = inventory.getLeggings();
 
-		TextComponent component = new TextComponent(String.format(format, player.getDisplayName(), ""));
+		TextComponent component;
+		
+		if (ChatItem.getIsVaultEnabled()) {
+			String prefix = ChatColor.translateAlternateColorCodes('&', ChatItem.getChat().getPlayerPrefix(player));
+			String suffix = ChatColor.translateAlternateColorCodes('&', ChatItem.getChat().getPlayerSuffix(player));
+			
+			component = new TextComponent(prefix + player.getDisplayName() + suffix + ": ");
+		} else {
+			String format = event.getFormat();
+			
+			component = new TextComponent(String.format(format, player.getDisplayName(), ""));
+		}
 
 		List<StringPosition> itemPositions = getStringPositions(message);
 
-		if (itemInHand == null || itemInHand.getData().getItemType() == Material.AIR) {
+		if (itemInHand == null || itemInHand.getType() == Material.AIR) {
 			return;
 		}
 
