@@ -1,4 +1,4 @@
-# [ChatItems] config file
+# ChatItem config file
 showQuantities:
   singleItems: false
   multiple: true
