@@ -77,7 +77,11 @@ public class ItemUtil {
 		}
 	}
 
-	public static BaseComponent getItemComponent (ItemStack itemStack) {
+	public static BaseComponent getItemComponent (ItemStack itemStack, String noItem) {
+		if (itemStack == null) {
+			return new TextComponent(noItem);
+		}
+
 		int itemAmount = itemStack.getAmount();
 
 		BaseComponent item = null;

@@ -9,10 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-import xyz.mackan.ChatItem.ChatItem;
 import xyz.mackan.ChatItem.PatternType;
 import xyz.mackan.ChatItem.StringPosition;
-import xyz.mackan.ChatItem.util.FormatUtil;
 import xyz.mackan.ChatItem.util.ItemUtil;
 
 import java.util.ArrayList;
@@ -36,15 +34,15 @@ public class PlayerChatEventListener implements Listener {
 		return stringPositions;
 	}
 
-	public boolean shouldContinue (ItemStack itemStack) {
-		if (itemStack == null || itemStack.getData().getItemType() == Material.AIR) {
+	public boolean shouldExitLoop (ItemStack itemStack) {
+		if (itemStack == null || itemStack.getData().getItemType() == Material.AIR || itemStack.getData().getItemType() == Material.LEGACY_AIR) {
 			return true;
 		}
 
 		return false;
 	}
 
-	@EventHandler(priority = EventPriority.LOWEST)
+	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerChat (AsyncPlayerChatEvent event) {
 		String message = event.getMessage();
 		Player player = event.getPlayer();
@@ -65,10 +63,9 @@ public class PlayerChatEventListener implements Listener {
 
 		List<StringPosition> itemPositions = getStringPositions(message);
 
-		if (itemInHand == null || itemInHand.getData().getItemType() == Material.AIR) {
-			return;
+		if (itemInHand.getData().getItemType() == Material.AIR || itemInHand.getData().getItemType() == Material.LEGACY_AIR) {
+			itemInHand = null;
 		}
-
 
 		for (int i = 0;i<itemPositions.size();i++) {
 			StringPosition current = itemPositions.get(i);
@@ -91,10 +88,6 @@ public class PlayerChatEventListener implements Listener {
 					break;
 			}
 
-			if (shouldContinue(itemToCheck)) {
-				continue;
-			}
-
 			if (i + 1 < itemPositions.size()) {
 				next = itemPositions.get(i + 1);
 			}
@@ -115,17 +108,14 @@ public class PlayerChatEventListener implements Listener {
 				end = message.substring(current.end);
 			}
 
-			start = start.replaceAll(current.patternType.pattern, "");
-			end = end.replaceAll(current.patternType.pattern, "");
-
-			if (ChatItem.getIsEssChatEnabled()) {
-				start = FormatUtil.formatMessage(player, start);
-				end = FormatUtil.formatMessage(player, end);
+			if (!shouldExitLoop(itemToCheck)) {
+				start = start.replaceAll(current.patternType.pattern, "");
+				end = end.replaceAll(current.patternType.pattern, "");
 			}
 
 			component.addExtra(start);
 
-			component.addExtra(ItemUtil.getItemComponent(itemToCheck));
+			component.addExtra(ItemUtil.getItemComponent(itemToCheck, current.patternType.pattern.replace("\\", "")));
 
 			component.addExtra(end);
 		}
