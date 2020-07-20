@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ChatItems-Plugin" />
+        <module name="ChatItems-1_8_R3" />
+        <module name="ChatItems-1_8_R2" />
         <module name="ChatItems-1_8_R1" />
       </profile>
       <profile name="Annotation profile for ChatItems" enabled="true">

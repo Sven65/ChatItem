@@ -49,6 +49,17 @@
             <artifactId>ChatItems-plugin</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>xyz.mackan</groupId>
+            <artifactId>ChatItems-1_8_R3</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>xyz.mackan</groupId>
+            <artifactId>ChatItems-1_8_R2</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
         <dependency>
             <groupId>xyz.mackan</groupId>
             <artifactId>ChatItems-1_8_R1</artifactId>
