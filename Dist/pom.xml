@@ -33,7 +33,7 @@
                         <configuration>
                             <artifactSet>
                                 <includes>
-                                    <include>xyz.mackan.ChatItems.*</include>
+                                    <include>xyz.mackan:ChatItems-*</include>
                                 </includes>
                             </artifactSet>
                         </configuration>

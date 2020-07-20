@@ -4,7 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class Implementation1_9 implements ChatItemsAPI {
+public class Implementation1_9 {
 	public Implementation1_9 () {}
 
 	public ItemStack getItemInMainHand (Player player) {

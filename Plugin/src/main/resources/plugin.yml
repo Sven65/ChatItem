@@ -1,10 +1,9 @@
-name: ${project.name}
-version: ${project.version}
+name: ${parent.name}
+version: ${parent.version}
 main: xyz.mackan.ChatItem.ChatItem
-description: ${project.description}
+description: ${parent.description}
 author: Mackan
 depend: [LocaleLib]
-api-version: 1.8
 commands:
   ci:
     description: Shows information about [ChatItems]

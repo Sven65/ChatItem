@@ -15,9 +15,11 @@ import xyz.mackan.ChatItem.ChatItem;
 import xyz.mackan.ChatItem.PatternType;
 import xyz.mackan.ChatItem.StringPosition;
 import xyz.mackan.ChatItem.util.ItemUtil;
+import xyz.mackan.ChatItem.util.VersionUtil;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -67,17 +69,14 @@ public class PlayerChatEventListener implements Listener {
 		ItemStack chestplate = api.getChestplate(player);
 		ItemStack legs = api.getLegs(player);
 
-		TextComponent component = new TextComponent(String.format(format, player.getDisplayName(), ""));
+		Object chatComponent = api.getChatBase();
 
 		List<StringPosition> itemPositions = getStringPositions(message);
-
-//		if (itemInHand.getData().getItemType() == Material.AIR || itemInHand.getData().getItemType() == Material.LEGACY_AIR) {
-//			itemInHand = null;
-//		}
 
 		if (api.isAir(itemInHand)) {
 			itemInHand = null;
 		}
+
 
 		for (int i = 0;i<itemPositions.size();i++) {
 			StringPosition current = itemPositions.get(i);
@@ -125,20 +124,16 @@ public class PlayerChatEventListener implements Listener {
 				end = end.replaceAll(current.patternType.pattern, "");
 			}
 
-			component.addExtra(start);
+			api.addExtra(chatComponent, start);
 
-			component.addExtra(ItemUtil.getItemComponent(itemToCheck, current.patternType.pattern.replace("\\", "")));
+			api.addHoverItem(chatComponent, itemToCheck, current.patternType.pattern.replace("\\", ""));
 
-			component.addExtra(end);
+			api.addExtra(chatComponent, end);
 		}
 
 		if (itemPositions.size() > 0) {
 			event.getRecipients().forEach((Player recipient) -> {
-//				System.out.println("com "+component);
-//				System.out.println("com legacy"+component.toLegacyText());
-//				recipient.sendMessage(component);
-				//recipient.spigot().sendMessage(component);
-//				recipient.sendMessage(component);
+				api.sendMessage(player, format, chatComponent);
 			});
 
 			event.setCancelled(true);

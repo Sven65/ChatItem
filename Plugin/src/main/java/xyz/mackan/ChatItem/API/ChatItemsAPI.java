@@ -1,5 +1,6 @@
 package xyz.mackan.ChatItem.API;
 
+import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -17,4 +18,16 @@ public interface ChatItemsAPI {
 	ItemStack getLegs (Player player);
 
 	boolean isAir (ItemStack item);
+
+	String convertItemStackToJson(ItemStack itemStack);
+
+	Object getItemComponent (ItemStack itemStack, String defaultString);
+
+	Object getChatBase ();
+
+	void addExtra (Object chatComponent, Object extra);
+
+	void addHoverItem (Object chatComponent, ItemStack item, String defaultString);
+
+	void sendMessage (Player player, String format, Object chatComponent);
 }
