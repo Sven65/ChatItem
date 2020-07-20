@@ -11,6 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import xyz.mackan.ChatItem.API.ItemAPI;
 import xyz.mackan.ChatItem.ChatItem;
 
 import java.lang.reflect.Method;
@@ -116,7 +117,9 @@ public class ItemUtil {
 			item = itemComponent;
 		}
 
-		String itemJson = ItemUtil.convertItemStackToJson(itemStack);
+		ItemAPI api = Bukkit.getServicesManager().getRegistration(ItemAPI.class).getProvider();
+
+		String itemJson = api.convertItemStackToJson(itemStack);//ItemUtil.convertItemStackToJson(itemStack);
 
 		BaseComponent[] hoverEventComponents = new BaseComponent[]{
 				new TextComponent(itemJson)

@@ -1,6 +1,7 @@
 package xyz.mackan.ChatItem.events;
 
 import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -9,9 +10,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import xyz.mackan.ChatItem.API.ChatItemsAPI;
+import xyz.mackan.ChatItem.ChatItem;
 import xyz.mackan.ChatItem.PatternType;
 import xyz.mackan.ChatItem.StringPosition;
 import xyz.mackan.ChatItem.util.ItemUtil;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +39,9 @@ public class PlayerChatEventListener implements Listener {
 	}
 
 	public boolean shouldExitLoop (ItemStack itemStack) {
-		if (itemStack == null || itemStack.getData().getItemType() == Material.AIR || itemStack.getData().getItemType() == Material.LEGACY_AIR) {
+		ChatItemsAPI api = Bukkit.getServicesManager().getRegistration(ChatItemsAPI.class).getProvider();
+
+		if (itemStack == null || api.isAir(itemStack)) {
 			return true;
 		}
 
@@ -51,19 +57,25 @@ public class PlayerChatEventListener implements Listener {
 
 		PlayerInventory inventory = player.getInventory();
 
-		ItemStack itemInHand = inventory.getItemInMainHand();
-		ItemStack itemInOffHand = inventory.getItemInOffHand();
+		ChatItemsAPI api = Bukkit.getServicesManager().getRegistration(ChatItemsAPI.class).getProvider();
 
-		ItemStack boots = inventory.getBoots();
-		ItemStack helmet = inventory.getHelmet();
-		ItemStack chestplate = inventory.getChestplate();
-		ItemStack legs = inventory.getLeggings();
+		ItemStack itemInHand = api.getItemInMainHand(player); //inventory.getItemInMainHand();
+		ItemStack itemInOffHand = api.getItemInOffHand(player);//inventory.getItemInOffHand();
+
+		ItemStack boots = api.getBoots(player);
+		ItemStack helmet = api.getHelmet(player);
+		ItemStack chestplate = api.getChestplate(player);
+		ItemStack legs = api.getLegs(player);
 
 		TextComponent component = new TextComponent(String.format(format, player.getDisplayName(), ""));
 
 		List<StringPosition> itemPositions = getStringPositions(message);
 
-		if (itemInHand.getData().getItemType() == Material.AIR || itemInHand.getData().getItemType() == Material.LEGACY_AIR) {
+//		if (itemInHand.getData().getItemType() == Material.AIR || itemInHand.getData().getItemType() == Material.LEGACY_AIR) {
+//			itemInHand = null;
+//		}
+
+		if (api.isAir(itemInHand)) {
 			itemInHand = null;
 		}
 
@@ -122,7 +134,11 @@ public class PlayerChatEventListener implements Listener {
 
 		if (itemPositions.size() > 0) {
 			event.getRecipients().forEach((Player recipient) -> {
-				recipient.spigot().sendMessage(component);
+//				System.out.println("com "+component);
+//				System.out.println("com legacy"+component.toLegacyText());
+//				recipient.sendMessage(component);
+				//recipient.spigot().sendMessage(component);
+//				recipient.sendMessage(component);
 			});
 
 			event.setCancelled(true);

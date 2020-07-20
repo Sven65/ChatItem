@@ -6,8 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ChatItem" />
+        <module name="ChatItems-Plugin" />
+        <module name="ChatItems-1_8_R1" />
+      </profile>
+      <profile name="Annotation profile for ChatItems" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ChatItems-dist" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ChatItem" target="8" />
+      <module name="ChatItems" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

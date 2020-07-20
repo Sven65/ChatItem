@@ -5,14 +5,17 @@ package xyz.mackan.ChatItem;
 
 import me.pikamug.localelib.LocaleLib;
 import me.pikamug.localelib.LocaleManager;
-import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginDescriptionFile;
-import org.yaml.snakeyaml.Yaml;
+import org.bukkit.plugin.ServicePriority;
+import xyz.mackan.ChatItem.API.ChatItemsAPI;
+import xyz.mackan.ChatItem.API.ItemAPI;
 import xyz.mackan.ChatItem.commands.ChatItemCommand;
 import xyz.mackan.ChatItem.events.PlayerChatEventListener;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.logging.Level;
 
 public class ChatItem extends JavaPlugin {
 	private static LocaleManager localeManager;
@@ -29,6 +32,7 @@ public class ChatItem extends JavaPlugin {
 
 	public static ConfigHolder configHolder = new ConfigHolder();
 
+
 	public void loadConfig () {
 		FileConfiguration config = this.getConfig();
 
@@ -36,9 +40,29 @@ public class ChatItem extends JavaPlugin {
 		configHolder.singleItems = config.getBoolean("showQuantities.singleItems", false);
 	}
 
+	private void loadAPI () {
+		ChatItemsAPI api = null;
+		ItemAPI itemAPI = null;
+
+		String packageName = ChatItem.class.getPackage().getName();
+		String internalsName = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3].substring(1);
+		try {
+			api = (ChatItemsAPI) Class.forName(packageName + "." + internalsName).newInstance();
+			itemAPI = (ItemAPI) Class.forName(packageName + "." + internalsName).newInstance();
+
+			Bukkit.getServicesManager().register(ChatItemsAPI.class, api, this, ServicePriority.Highest);
+			Bukkit.getServicesManager().register(ItemAPI.class, itemAPI, this, ServicePriority.Highest);
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | ClassCastException exception) {
+			Bukkit.getLogger().log(Level.SEVERE, "ChatItems could not find a valid implementation for this server version.");
+		}
+	}
+
 	@Override
 	public void onEnable() {
-		getLogger().info("[ChatItem] is enabled.");
+
+		getLogger().info("[ChatItems] is enabled.");
+
+		loadAPI();
 
 		this.saveDefaultConfig();
 
@@ -49,10 +73,6 @@ public class ChatItem extends JavaPlugin {
 		LocaleLib localeLib = (LocaleLib) getServer().getPluginManager().getPlugin("LocaleLib");
 		localeManager = localeLib.getLocaleManager();
 
-		isEssChatEnabled = getServer().getPluginManager().getPlugin("EssentialsChat") != null;
-
-		getLogger().info("[ChatItem] Is EssentialsChat enabled: "+isEssChatEnabled);
-
 		this.getCommand("ci").setExecutor(new ChatItemCommand());
 
 		descriptionFile = this.getDescription();
@@ -60,6 +80,6 @@ public class ChatItem extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		getLogger().info("[ChatItem] is disabled.");
+		getLogger().info("[ChatItems] is disabled.");
 	}
 }
