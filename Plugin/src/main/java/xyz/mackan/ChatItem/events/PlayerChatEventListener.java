@@ -1,5 +1,6 @@
 package xyz.mackan.ChatItem.events;
 
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,7 +11,9 @@ import org.bukkit.inventory.ItemStack;
 import xyz.mackan.ChatItem.API.ChatItemsAPI;
 import xyz.mackan.ChatItem.PatternType;
 import xyz.mackan.ChatItem.StringPosition;
+import xyz.mackan.ChatItem.util.ItemUtil;
 
+import javax.xml.soap.Text;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -63,7 +66,7 @@ public class PlayerChatEventListener implements Listener {
 		ItemStack chestplate = api.getChestplate(player);
 		ItemStack legs = api.getLegs(player);
 
-		Object chatComponent = api.getChatBase();
+		TextComponent chatComponent = new TextComponent(String.format(format, player.getDisplayName(), ""));
 
 		List<StringPosition> itemPositions = getStringPositions(message);
 
@@ -124,17 +127,16 @@ public class PlayerChatEventListener implements Listener {
 				defaultString = current.patternType.pattern.replace("\\", "");
 			}
 
-			api.addExtra(chatComponent, start);
+			chatComponent.addExtra(start);
 
-			api.addHoverItem(chatComponent, itemToCheck, defaultString);
+			chatComponent.addExtra(ItemUtil.getItemComponent(itemToCheck, defaultString));
 
-
-			api.addExtra(chatComponent, end);
+			chatComponent.addExtra(end);
 		}
 
 		if (itemPositions.size() > 0) {
 			event.getRecipients().forEach((Player recipient) -> {
-				api.sendMessage(player, format, chatComponent);
+				recipient.spigot().sendMessage(chatComponent);
 			});
 
 			event.setCancelled(true);

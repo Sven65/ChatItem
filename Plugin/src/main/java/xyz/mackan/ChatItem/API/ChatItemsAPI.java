@@ -20,14 +20,4 @@ public interface ChatItemsAPI {
 	boolean isAir (ItemStack item);
 
 	String convertItemStackToJson(ItemStack itemStack);
-
-	Object getItemComponent (ItemStack itemStack, String defaultString);
-
-	Object getChatBase ();
-
-	void addExtra (Object chatComponent, Object extra);
-
-	void addHoverItem (Object chatComponent, ItemStack item, String defaultString);
-
-	void sendMessage (Player player, String format, Object chatComponent);
 }

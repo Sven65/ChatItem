@@ -44,16 +44,17 @@ public class ItemUtil {
 		}
 	}
 
-	public static BaseComponent getItemComponent (ItemStack itemStack, String noItem) {
+	public static BaseComponent getItemComponent (ItemStack itemStack, String defaultString) {
 		if (itemStack == null) {
-			return new TextComponent(noItem);
+			return new TextComponent(defaultString);
 		}
+
+		BaseComponent displayItem;
 
 		int itemAmount = itemStack.getAmount();
 
-		BaseComponent item = null;
-
-		String itemMetaName = ItemUtil.getItemMetaName(itemStack);
+		String itemMetaName = getItemMetaName(itemStack);
+		String translatableName = getTranslatableMaterialName(itemStack);
 
 		if (itemMetaName != null) {
 			String displayName = itemMetaName;
@@ -66,9 +67,9 @@ public class ItemUtil {
 				displayName = itemAmount + " x "+itemMetaName;
 			}
 
-			item = new TextComponent(displayName);
+			displayItem = new TextComponent(displayName);
 		} else {
-			BaseComponent itemComponent = new TextComponent();
+			BaseComponent itemComponent = new TextComponent("");
 
 			if (itemAmount == 1 && ChatItem.configHolder.singleItems) {
 				itemComponent = new TextComponent("1 x ");
@@ -78,22 +79,22 @@ public class ItemUtil {
 				itemComponent = new TextComponent(""+itemAmount+" x ");
 			}
 
-			itemComponent.addExtra(new TranslatableComponent(ItemUtil.getTranslatableMaterialName(itemStack)));
+			itemComponent.addExtra(new TranslatableComponent(translatableName));
 
-			item = itemComponent;
+			displayItem = itemComponent;
 		}
 
 		ChatItemsAPI api = Bukkit.getServicesManager().getRegistration(ChatItemsAPI.class).getProvider();
 
-//		Object itemJson = api.getItemComponent(itemStack);//ItemUtil.convertItemStackToJson(itemStack);
-//
-//		BaseComponent[] hoverEventComponents = new BaseComponent[]{
-//				new TextComponent((BaseComponent)itemJson)
-//		};
-//
-//		item.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_ITEM, hoverEventComponents));
-//		item.setColor(ChatColor.AQUA);
+		String itemJson = api.convertItemStackToJson(itemStack);
 
-		return item;
+		BaseComponent[] hoverEventComponents = new BaseComponent[]{
+				new TextComponent(itemJson)
+		};
+
+		displayItem.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_ITEM, hoverEventComponents));
+		displayItem.setColor(ChatColor.AQUA);
+
+		return displayItem;
 	}
 }
