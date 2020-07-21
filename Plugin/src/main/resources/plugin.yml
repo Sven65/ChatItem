@@ -1,0 +1,10 @@
+name: ${parent.name}
+version: ${parent.version}
+main: xyz.mackan.ChatItem.ChatItem
+description: ${parent.description}
+author: Mackan
+depend: [LocaleLib]
+commands:
+  ci:
+    description: Shows information about [ChatItems]
+    usage: /<command>

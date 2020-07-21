@@ -6,34 +6,38 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>xyz.mackan</groupId>
-    <artifactId>ChatItems</artifactId>
+    <artifactId>ChatItems-parent</artifactId>
     <version>1.0.5</version>
-    <description>A plugin that lets you show items in chat</description>
+    <packaging>pom</packaging>
     <name>ChatItems</name>
 
-    <build>
-        <finalName>ChatItems-${version}</finalName>
-        <resources>
-            <resource>
-                <targetPath>.</targetPath>
-                <filtering>true</filtering>
-                <directory>${basedir}/src/main/resources/</directory>
-                <includes>
-                    <include>plugin.yml</include>
-                </includes>
-            </resource>
-        </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <description>A plugin that lets you show items in chat</description>
+
+    <modules>
+        <module>Plugin</module>
+        <module>1_8_R1</module>
+        <module>1_8_R2</module>
+        <module>1_8_R3</module>
+        <module>1_9_R1</module>
+        <module>1_9_R2</module>
+        <module>1_10_R1</module>
+        <module>1_11_R1</module>
+        <module>1_12_R1</module>
+        <module>1_13_R1</module>
+        <module>1_13_R2</module>
+        <module>1_14_R1</module>
+        <module>1_15_R1</module>
+        <module>1_16_R1</module>
+        <module>Dist</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.PikaMug</groupId>
+            <artifactId>LocaleLib</artifactId>
+            <version>1.6</version>
+        </dependency>
+    </dependencies>
 
     <repositories>
         <repository>
@@ -42,18 +46,4 @@
             <name>jitpack</name>
         </repository>
     </repositories>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.16.1-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.PikaMug</groupId>
-            <artifactId>LocaleLib</artifactId>
-            <version>1.6</version>
-        </dependency>
-    </dependencies>
 </project>
