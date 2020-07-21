@@ -5,17 +5,17 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.chat.TranslatableComponent;
-import net.minecraft.server.v1_11_R1.*;
+import net.minecraft.server.v1_13_R2.*;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_13_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_13_R2.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import xyz.mackan.ChatItem.ChatItem;
 import xyz.mackan.ChatItem.util.ItemUtil;
 
-public class ChatItemsAPI_v1_11_R1 implements ChatItemsAPI {
-	public ChatItemsAPI_v1_11_R1 () {}
+public class ChatItemsAPI_v1_13_R2 implements ChatItemsAPI {
+	public ChatItemsAPI_v1_13_R2 () {}
 
 	public ItemStack getItemInMainHand (Player player) {
 		return player.getInventory().getItemInMainHand();
@@ -46,7 +46,7 @@ public class ChatItemsAPI_v1_11_R1 implements ChatItemsAPI {
 	}
 
 	public String convertItemStackToJson (ItemStack itemStack) {
-		net.minecraft.server.v1_11_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+		net.minecraft.server.v1_13_R2.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 
 		NBTTagCompound nbtTagCompound = new NBTTagCompound();
 
@@ -67,7 +67,7 @@ public class ChatItemsAPI_v1_11_R1 implements ChatItemsAPI {
 		String itemMetaName = ItemUtil.getItemMetaName(itemStack);
 		String translatableName = ItemUtil.getTranslatableMaterialName(itemStack);
 
-		net.minecraft.server.v1_11_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+		net.minecraft.server.v1_13_R2.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 
 
 		if (itemMetaName != null) {
