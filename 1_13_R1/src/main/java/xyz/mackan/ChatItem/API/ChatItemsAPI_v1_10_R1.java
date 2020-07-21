@@ -2,8 +2,8 @@ package xyz.mackan.ChatItem.API;
 
 import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftItemStack;
+import net.minecraft.server.v1_10_R1.entity.CraftPlayer;
+import net.minecraft.server.v1_10_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import xyz.mackan.ChatItem.ChatItem;

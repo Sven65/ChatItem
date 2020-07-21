@@ -1,16 +1,16 @@
 package xyz.mackan.ChatItem.API;
 
-import net.minecraft.server.v1_10_R1.*;
+import net.minecraft.server.v1_12_R1.*;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import xyz.mackan.ChatItem.ChatItem;
 import xyz.mackan.ChatItem.util.ItemUtil;
 
-public class ChatItemsAPI_v1_10_R1 implements ChatItemsAPI {
-	public ChatItemsAPI_v1_10_R1 () {}
+public class ChatItemsAPI_v1_12_R1 implements ChatItemsAPI {
+	public ChatItemsAPI_v1_12_R1 () {}
 
 	public ItemStack getItemInMainHand (Player player) {
 		return player.getInventory().getItemInMainHand();
@@ -41,7 +41,7 @@ public class ChatItemsAPI_v1_10_R1 implements ChatItemsAPI {
 	}
 
 	public String convertItemStackToJson (ItemStack itemStack) {
-		net.minecraft.server.v1_10_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+		net.minecraft.server.v1_12_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 
 		NBTTagCompound nbtTagCompound = new NBTTagCompound();
 
@@ -62,7 +62,7 @@ public class ChatItemsAPI_v1_10_R1 implements ChatItemsAPI {
 		String itemMetaName = ItemUtil.getItemMetaName(itemStack);
 //		String translatableName = ItemUtil.getTranslatableMaterialName(itemStack);
 
-		net.minecraft.server.v1_10_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+		net.minecraft.server.v1_12_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 
 		if (itemMetaName != null) {
 			String displayName = itemMetaName;
@@ -149,6 +149,8 @@ public class ChatItemsAPI_v1_10_R1 implements ChatItemsAPI {
 		layout.addSibling(base);
 
 		EntityPlayer entityPlayer = (EntityPlayer) ((CraftPlayer) player).getHandle();
+
+		//player.spigot().
 
 		entityPlayer.sendMessage(layout);
 	}

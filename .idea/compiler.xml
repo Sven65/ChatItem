@@ -6,14 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ChatItems-1_13_R1" />
+        <module name="ChatItems-1_9_R2" />
+        <module name="ChatItems-1_12_R1" />
+        <module name="ChatItems-1_16_R1" />
+        <module name="ChatItems-1_8_R2" />
+        <module name="ChatItems-1_15_R1" />
         <module name="ChatItems-1_11_R1" />
         <module name="ChatItems-1_10_R1" />
+        <module name="ChatItems-1_9_R1" />
         <module name="ChatItems-1_8_R3" />
-        <module name="ChatItems-1_8_R2" />
         <module name="ChatItems-1_8_R1" />
         <module name="ChatItems-Plugin" />
-        <module name="ChatItems-1_9_R2" />
-        <module name="ChatItems-1_9_R1" />
+        <module name="ChatItems-1_14_R1" />
+        <module name="ChatItems-1_13_R2" />
       </profile>
       <profile name="Annotation profile for ChatItems" enabled="true">
         <sourceOutputDir name="../target/generated-sources/annotations" />
@@ -25,6 +31,18 @@
     <bytecodeTargetLevel>
       <module name="ChatItem" target="8" />
       <module name="ChatItems" target="8" />
+      <module name="ChatItems-1_10_R1 (1)" target="8" />
+      <module name="ChatItems-1_10_R1 (2)" target="8" />
+      <module name="ChatItems-1_10_R1 (3)" target="8" />
+      <module name="ChatItems-1_10_R1 (4)" target="8" />
+      <module name="ChatItems-1_10_R1 (5)" target="8" />
+      <module name="ChatItems-1_11_R1" target="8" />
+      <module name="ChatItems-1_12_R1" target="8" />
+      <module name="ChatItems-1_13_R1" target="8" />
+      <module name="ChatItems-1_13_R2" target="8" />
+      <module name="ChatItems-1_14_R1" target="8" />
+      <module name="ChatItems-1_15_R1" target="8" />
+      <module name="ChatItems-1_16_R1" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

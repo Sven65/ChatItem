@@ -1,5 +1,10 @@
 package xyz.mackan.ChatItem.API;
 
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.TranslatableComponent;
 import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
@@ -52,15 +57,15 @@ public class ChatItemsAPI_v1_10_R1 implements ChatItemsAPI {
 
 	public Object getItemComponent (ItemStack itemStack, String defaultString) {
 		if (itemStack == null) {
-			return new ChatComponentText(defaultString);
+			return new TextComponent(defaultString);
 		}
 
-		IChatBaseComponent displayItem;
+		BaseComponent displayItem;
 
 		int itemAmount = itemStack.getAmount();
 
 		String itemMetaName = ItemUtil.getItemMetaName(itemStack);
-//		String translatableName = ItemUtil.getTranslatableMaterialName(itemStack);
+		String translatableName = ItemUtil.getTranslatableMaterialName(itemStack);
 
 		net.minecraft.server.v1_10_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 
@@ -76,81 +81,66 @@ public class ChatItemsAPI_v1_10_R1 implements ChatItemsAPI {
 				displayName = itemAmount + " x "+itemMetaName;
 			}
 
-			displayItem = new ChatComponentText(displayName);
+			displayItem = new TextComponent(displayName);
 		} else {
-			IChatBaseComponent itemComponent = new ChatComponentText("");
+			BaseComponent itemComponent = new TextComponent("");
 
 			if (itemAmount == 1 && ChatItem.configHolder.singleItems) {
-				itemComponent = new ChatComponentText("1 x ");
+				itemComponent = new TextComponent("1 x ");
 			}
 
 			if (itemAmount > 1 && ChatItem.configHolder.multiple) {
-				itemComponent = new ChatComponentText(""+itemAmount+" x ");
+				itemComponent = new TextComponent(""+itemAmount+" x ");
 			}
 
-			// TODO: Translate items in 1.9
-//			ChatComponentText translatableItem = new ChatComponentText(",{\"translate\":\"" + translatableName + "\"},");
-//
-//			itemComponent.addSibling(translatableItem);
-
-
-
-			ChatComponentText item = new ChatComponentText(nmsStack.getName());
-
-			itemComponent.addSibling(item);
+			itemComponent.addExtra(new TranslatableComponent(translatableName));
 
 			displayItem = itemComponent;
 		}
 
-		ChatModifier modifier = displayItem.getChatModifier();
+		String itemJson = convertItemStackToJson(itemStack);
 
-		modifier.setColor(EnumChatFormat.AQUA);
+		BaseComponent[] hoverEventComponents = new BaseComponent[]{
+				new TextComponent(itemJson)
+		};
 
-		ChatHoverable hoverAction = new ChatHoverable(
-				ChatHoverable.EnumHoverAction.SHOW_ITEM,
-				(IChatBaseComponent)new ChatComponentText(convertItemStackToJson(itemStack))
-		);
-
-		modifier.setChatHoverable(hoverAction);
-
-		displayItem.setChatModifier(modifier);
+		displayItem.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_ITEM, hoverEventComponents));
+		displayItem.setColor(ChatColor.AQUA);
 
 		return displayItem;
 	}
 
 	public Object getChatBase () {
-		return new ChatComponentText("");
+		return new TextComponent("");
 	}
 
 	public void addExtra (Object chatComponent, Object extra) {
-		IChatBaseComponent base = (IChatBaseComponent) chatComponent;
+		BaseComponent base = (BaseComponent) chatComponent;
 
-		IChatBaseComponent sibling;
+		BaseComponent sibling;
 
 		if (extra instanceof String) {
-			sibling = new ChatComponentText((String)extra);
+			sibling = new TextComponent((String)extra);
 		} else {
-			sibling = (IChatBaseComponent) extra;
+			sibling = (BaseComponent) extra;
 		}
 
-		base.addSibling(sibling);
+		base.addExtra(sibling);
 	}
 
 	public void addHoverItem (Object chatComponent, ItemStack item, String defaultString) {
-		IChatBaseComponent base = (IChatBaseComponent) chatComponent;
+		BaseComponent base = (BaseComponent) chatComponent;
 
-		base.addSibling((IChatBaseComponent) getItemComponent(item, defaultString));
+		base.addExtra((BaseComponent) getItemComponent(item, defaultString));
 	}
 
 	public void sendMessage (Player player, String format, Object chatComponent) {
-		IChatBaseComponent base = (IChatBaseComponent) chatComponent;
+		BaseComponent base = (BaseComponent) chatComponent;
 
-		ChatComponentText layout = new ChatComponentText(String.format(format, player.getDisplayName(), ""));
+		TextComponent layout = new TextComponent(String.format(format, player.getDisplayName(), ""));
 
-		layout.addSibling(base);
+		layout.addExtra(base);
 
-		EntityPlayer entityPlayer = (EntityPlayer) ((CraftPlayer) player).getHandle();
-
-		entityPlayer.sendMessage(layout);
+		player.spigot().sendMessage(layout);
 	}
 }
