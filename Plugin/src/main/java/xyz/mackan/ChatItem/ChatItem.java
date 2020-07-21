@@ -41,23 +41,14 @@ public class ChatItem extends JavaPlugin {
 
 	private void loadAPI () {
 		ChatItemsAPI api = null;
-		//ItemAPI itemAPI = null;
 
 		String packageName = ChatItem.class.getPackage().getName();
 		String internalsName = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3].substring(1);
 
-		Bukkit.getLogger().log(Level.SEVERE, "I want class: "+packageName+".API.ChatItemsAPI_v"+internalsName);
-
-
 		try {
 			api = (ChatItemsAPI) Class.forName(packageName + ".API.ChatItemsAPI_v" + internalsName).newInstance();
-			//itemAPI = (ItemAPI) Class.forName(packageName + ".API.ItemAPI_v" + internalsName).newInstance();
-
 			Bukkit.getServicesManager().register(ChatItemsAPI.class, api, this, ServicePriority.Highest);
-			//Bukkit.getServicesManager().register(ItemAPI.class, itemAPI, this, ServicePriority.Highest);
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | ClassCastException exception) {
-			Bukkit.getLogger().log(Level.SEVERE, "I want class: "+packageName+"."+internalsName);
-
 			Bukkit.getLogger().log(Level.SEVERE, "ChatItems could not find a valid implementation for this server version.");
 		}
 	}

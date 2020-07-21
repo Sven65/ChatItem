@@ -3,7 +3,7 @@
   <parent>
     <artifactId>ChatItems-parent</artifactId>
     <groupId>xyz.mackan</groupId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>xyz.mackan</groupId>
@@ -11,7 +11,7 @@
   <version>${project.parent.version}</version>
   <build>
     <directory>../target</directory>
-    <finalName>ChatItems-${project.version}</finalName>
+    <finalName>ChatItems-${project.parent.version}</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>

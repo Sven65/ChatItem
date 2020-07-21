@@ -112,7 +112,6 @@ public class PlayerChatEventListener implements Listener {
 			String defaultString = "";
 
 			if (next != null) {
-				System.out.println("i: "+i);
 				end = message.substring(current.end, next.start);
 			}
 
