@@ -1,25 +1,24 @@
 package xyz.mackan.ChatItem.API;
 
-import net.minecraft.server.v1_8_R2.*;
+import net.minecraft.server.v1_9_R1.*;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_8_R2.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_8_R2.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_9_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import xyz.mackan.ChatItem.ChatItem;
 import xyz.mackan.ChatItem.util.ItemUtil;
 
-import java.lang.reflect.InvocationTargetException;
 
-public class ChatItemsAPI_v1_8_R2 implements ChatItemsAPI {
-	public ChatItemsAPI_v1_8_R2 () {}
+public class ChatItemsAPI_v1_9_R1 implements ChatItemsAPI {
+	public ChatItemsAPI_v1_9_R1 () {}
 
 	public ItemStack getItemInMainHand (Player player) {
-		return player.getInventory().getItemInHand();
+		return player.getInventory().getItemInMainHand();
 	}
 
 	public ItemStack getItemInOffHand (Player player) {
-		return null;
+		return player.getInventory().getItemInOffHand();
 	}
 
 	public ItemStack getBoots (Player player) {
@@ -43,7 +42,7 @@ public class ChatItemsAPI_v1_8_R2 implements ChatItemsAPI {
 	}
 
 	public String convertItemStackToJson (ItemStack itemStack) {
-		net.minecraft.server.v1_8_R2.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+		net.minecraft.server.v1_9_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 
 		NBTTagCompound nbtTagCompound = new NBTTagCompound();
 
@@ -52,9 +51,9 @@ public class ChatItemsAPI_v1_8_R2 implements ChatItemsAPI {
 		return nbtTagCompound.toString();
 	}
 
-	public Object getItemComponent (ItemStack itemStack) {
+	public Object getItemComponent (ItemStack itemStack, String defaultString) {
 		if (itemStack == null) {
-			return new ChatComponentText("");
+			return new ChatComponentText(defaultString);
 		}
 
 		IChatBaseComponent displayItem;
@@ -64,7 +63,7 @@ public class ChatItemsAPI_v1_8_R2 implements ChatItemsAPI {
 		String itemMetaName = ItemUtil.getItemMetaName(itemStack);
 //		String translatableName = ItemUtil.getTranslatableMaterialName(itemStack);
 
-		net.minecraft.server.v1_8_R2.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+		net.minecraft.server.v1_9_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 
 
 		if (itemMetaName != null) {
@@ -90,10 +89,12 @@ public class ChatItemsAPI_v1_8_R2 implements ChatItemsAPI {
 				itemComponent = new ChatComponentText(""+itemAmount+" x ");
 			}
 
-			// TODO: Translate items in 1.8
+			// TODO: Translate items in 1.9
 //			ChatComponentText translatableItem = new ChatComponentText(",{\"translate\":\"" + translatableName + "\"},");
 //
 //			itemComponent.addSibling(translatableItem);
+
+
 
 			ChatComponentText item = new ChatComponentText(nmsStack.getName());
 
@@ -136,10 +137,10 @@ public class ChatItemsAPI_v1_8_R2 implements ChatItemsAPI {
 		base.addSibling(sibling);
 	}
 
-	public void addHoverItem (Object chatComponent, ItemStack item) {
+	public void addHoverItem (Object chatComponent, ItemStack item, String defaultString) {
 		IChatBaseComponent base = (IChatBaseComponent) chatComponent;
 
-		base.addSibling((IChatBaseComponent) getItemComponent(item));
+		base.addSibling((IChatBaseComponent) getItemComponent(item, defaultString));
 	}
 
 	public void sendMessage (Player player, String format, Object chatComponent) {

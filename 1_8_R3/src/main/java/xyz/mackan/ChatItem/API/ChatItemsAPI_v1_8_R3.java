@@ -52,9 +52,9 @@ public class ChatItemsAPI_v1_8_R3 implements ChatItemsAPI {
 		return nbtTagCompound.toString();
 	}
 
-	public Object getItemComponent (ItemStack itemStack, String defaultString) {
+	public Object getItemComponent (ItemStack itemStack) {
 		if (itemStack == null) {
-			return new ChatComponentText(defaultString);
+			return new ChatComponentText("");
 		}
 
 		IChatBaseComponent displayItem;
@@ -136,10 +136,10 @@ public class ChatItemsAPI_v1_8_R3 implements ChatItemsAPI {
 		base.addSibling(sibling);
 	}
 
-	public void addHoverItem (Object chatComponent, ItemStack item, String defaultString) {
+	public void addHoverItem (Object chatComponent, ItemStack item) {
 		IChatBaseComponent base = (IChatBaseComponent) chatComponent;
 
-		base.addSibling((IChatBaseComponent) getItemComponent(item, defaultString));
+		base.addSibling((IChatBaseComponent) getItemComponent(item));
 	}
 
 	public void sendMessage (Player player, String format, Object chatComponent) {

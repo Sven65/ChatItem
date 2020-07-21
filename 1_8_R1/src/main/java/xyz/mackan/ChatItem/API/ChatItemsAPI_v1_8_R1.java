@@ -54,7 +54,7 @@ public class ChatItemsAPI_v1_8_R1 implements ChatItemsAPI {
 
 	public Object getItemComponent (ItemStack itemStack, String defaultString) {
 		if (itemStack == null) {
-			return new ChatComponentText(defaultString);
+			return new ChatComponentText("");
 		}
 
 		IChatBaseComponent displayItem;

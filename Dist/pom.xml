@@ -52,6 +52,18 @@
 
         <dependency>
             <groupId>xyz.mackan</groupId>
+            <artifactId>ChatItems-1_9_R2</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>xyz.mackan</groupId>
+            <artifactId>ChatItems-1_9_R1</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>xyz.mackan</groupId>
             <artifactId>ChatItems-1_8_R3</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
