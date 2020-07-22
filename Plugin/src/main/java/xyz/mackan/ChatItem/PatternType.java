@@ -13,6 +13,7 @@ public enum PatternType {
 
 	HELMET("HELMET", "\\[helmet\\]"),
 	HELM("HELMET", "\\[helm\\]"),
+	HEAD("HELMET", "\\[head\\]"),
 
 	CHESTPLATE("CHESTPLATE", "\\[chestplate\\]"),
 	CHEST("CHESTPLATE", "\\[chest\\]"),

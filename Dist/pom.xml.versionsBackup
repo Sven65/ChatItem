@@ -13,7 +13,7 @@
     <parent>
         <groupId>xyz.mackan</groupId>
         <artifactId>ChatItems-parent</artifactId>
-        <version>1.0.7</version>
+        <version>1.0.6</version>
     </parent>
 
     <build>

@@ -6,14 +6,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>xyz.mackan</groupId>
-    <artifactId>ChatItems-1_12_R1</artifactId>
+    <artifactId>ChatItems-1_9_R2</artifactId>
     <version>${project.parent.version}</version>
     <packaging>jar</packaging>
 
     <parent>
         <artifactId>ChatItems-parent</artifactId>
         <groupId>xyz.mackan</groupId>
-        <version>1.0.7</version>
+        <version>1.0.6</version>
     </parent>
 
     <build>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <version>1.9.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 

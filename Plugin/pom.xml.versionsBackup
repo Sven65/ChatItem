@@ -5,16 +5,16 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>xyz.mackan</groupId>
-    <artifactId>ChatItems-1_12_R1</artifactId>
-    <version>${project.parent.version}</version>
-    <packaging>jar</packaging>
-
     <parent>
         <artifactId>ChatItems-parent</artifactId>
         <groupId>xyz.mackan</groupId>
-        <version>1.0.7</version>
+        <version>1.0.6</version>
     </parent>
+
+    <groupId>xyz.mackan</groupId>
+    <artifactId>ChatItems-plugin</artifactId>
+    <version>${project.parent.version}</version>
+    <packaging>jar</packaging>
 
     <build>
         <plugins>
@@ -24,23 +24,31 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>true</filtering>
+                <directory>${basedir}/src/main/resources/</directory>
+                <includes>
+                    <include>plugin.yml</include>
+                    <include>config.yml</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <artifactId>spigot-api</artifactId>
+            <version>1.16.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>xyz.mackan</groupId>
-            <artifactId>ChatItems-plugin</artifactId>
-            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 </project>

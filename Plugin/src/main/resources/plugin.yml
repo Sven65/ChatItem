@@ -4,6 +4,7 @@ main: xyz.mackan.ChatItem.ChatItem
 description: ${parent.description}
 author: Mackan
 depend: [LocaleLib]
+softdepend: [VaultChatFormatter]
 api-version: 1.13
 commands:
   ci:
