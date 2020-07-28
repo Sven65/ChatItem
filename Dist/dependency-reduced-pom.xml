@@ -3,7 +3,7 @@
   <parent>
     <artifactId>ChatItems-parent</artifactId>
     <groupId>xyz.mackan</groupId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>xyz.mackan</groupId>
@@ -31,6 +31,22 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.0.1</version>
+        <configuration>
+          <show>public</show>
+          <windowtitle>ChatItems API</windowtitle>
+          <verbose>false</verbose>
+          <author>true</author>
+          <version>true</version>
+          <linksource>true</linksource>
+          <notimestamp>true</notimestamp>
+          <bottom>&lt;b&gt;Mackan 2020&lt;/b&gt;</bottom>
+          <reportOutputDirectory>${project.build.directory}</reportOutputDirectory>
+          <destDir>javadoc-latest</destDir>
+        </configuration>
       </plugin>
     </plugins>
   </build>

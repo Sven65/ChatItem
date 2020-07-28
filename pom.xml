@@ -7,7 +7,7 @@
 
     <groupId>xyz.mackan</groupId>
     <artifactId>ChatItems-parent</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
     <packaging>pom</packaging>
     <name>ChatItems</name>
 
@@ -24,6 +24,7 @@
     </build>
 
     <modules>
+        <module>API</module>
         <module>Plugin</module>
         <module>1_8_R1</module>
         <module>1_8_R2</module>
@@ -46,6 +47,12 @@
             <groupId>com.github.PikaMug</groupId>
             <artifactId>LocaleLib</artifactId>
             <version>1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>13.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

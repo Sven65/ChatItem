@@ -17,6 +17,7 @@
         <module name="ChatItems-1_8_R3" />
         <module name="ChatItems-1_8_R2" />
         <module name="ChatItems-1_15_R1" />
+        <module name="API" />
         <module name="ChatItems-Plugin" />
         <module name="ChatItems-1_14_R1" />
         <module name="ChatItems-1_13_R2" />

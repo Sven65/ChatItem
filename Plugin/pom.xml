@@ -8,7 +8,7 @@
     <parent>
         <artifactId>ChatItems-parent</artifactId>
         <groupId>xyz.mackan</groupId>
-        <version>1.0.7</version>
+        <version>1.0.8</version>
     </parent>
 
     <groupId>xyz.mackan</groupId>
@@ -49,6 +49,11 @@
             <artifactId>spigot-api</artifactId>
             <version>1.16.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>xyz.mackan</groupId>
+            <artifactId>ChatItems-API</artifactId>
+            <version>1.0.8</version>
         </dependency>
     </dependencies>
 </project>
