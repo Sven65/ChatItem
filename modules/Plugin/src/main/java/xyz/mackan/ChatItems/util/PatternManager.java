@@ -1,5 +1,6 @@
 package xyz.mackan.ChatItems.util;
 
+import org.jetbrains.annotations.Nullable;
 import xyz.mackan.chatitems.types.ChatPattern;
 import xyz.mackan.chatitems.util.IPatternManager;
 
@@ -18,7 +19,7 @@ public class PatternManager implements IPatternManager {
 	public static void registerPattern (ChatPattern.Type type, String pattern) {
 		ChatPattern newPattern = new ChatPattern(type, pattern);
 		patterns.add(newPattern);
-		byPattern.put(pattern, newPattern);
+		byPattern.put(pattern.replaceAll("\\\\", ""), newPattern);
 	}
 
 	/**
@@ -35,6 +36,7 @@ public class PatternManager implements IPatternManager {
 	 * @param pattern The pattern to get
 	 * @return The ChatPattern found
 	 */
+	@Nullable
 	public static ChatPattern getByPattern (String pattern) {
 		return byPattern.get(pattern.replaceAll("\\\\", ""));
 	}

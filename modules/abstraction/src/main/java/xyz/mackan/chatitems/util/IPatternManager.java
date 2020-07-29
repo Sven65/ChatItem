@@ -30,14 +30,14 @@ public interface IPatternManager {
 
 	/**
 	 * Registers a new ChatPattern
-	 * @param pattern The ChatPattern to register
+	 * @param pattern The {@link ChatPattern} to register
 	 */
 	static void registerPattern (ChatPattern pattern) {}
 
 	/**
 	 * Gets a ChatPattern by the regex pattern
 	 * @param pattern The pattern to get
-	 * @return The ChatPattern found
+	 * @return The {@link ChatPattern} found
 	 */
 	@Nullable
 	static ChatPattern getByPattern (String pattern) { return null; }

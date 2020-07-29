@@ -43,15 +43,15 @@ public class ItemUtil implements IItemUtil {
 	/**
 	 * Gets the items display name
 	 * @param item ItemStack to get the name of
-	 * @param returnDisplayName boolean if the items default name should be returned if it doesn't have a display name
-	 * @return
+	 * @param returnDefaultName boolean if the items default name should be returned if it doesn't have a display name
+	 * @return The items display name
 	 */
-	public static String getItemMetaName (ItemStack item, boolean returnDisplayName) {
+	public static String getItemMetaName (ItemStack item, boolean returnDefaultName) {
 		ItemMeta meta = item.getItemMeta();
 		boolean hasItemMeta = item.hasItemMeta();
 
 		if (!hasItemMeta) {
-			if (!returnDisplayName) return null;
+			if (!returnDefaultName) return null;
 
 			return getItemName(item);
 		} else {
@@ -73,7 +73,7 @@ public class ItemUtil implements IItemUtil {
 	/**
 	 * Gets the items name from server locale
 	 * @param item ItemStack to get the name of
-	 * @return
+	 * @return The name of the item from server locale
 	 */
 	@Nullable
 	public static String getItemName (ItemStack item) {

@@ -64,11 +64,4 @@ public interface ChatItemsAPI {
 	 * @return The JSON string for the item
 	 */
 	String convertItemStackToJson(ItemStack itemStack);
-
-	/**
-	 * Gets the item name from server locale
-	 * @param itemStack ItemStack the item to get the name of
-	 * @return String with the name of the item
-	 */
-	String getItemName (ItemStack itemStack);
 }

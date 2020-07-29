@@ -26,11 +26,11 @@ public interface IItemUtil {
 	/**
 	 * Gets the items display name
 	 * @param item ItemStack to get the name of
-	 * @param returnDisplayName boolean if the items default name should be returned if it doesn't have a display name
-	 * @return
+	 * @param returnDefaultName boolean if the items default name should be returned if it doesn't have a display name
+	 * @return The display name of the item
 	 */
 	@Nullable
-	static String getItemMetaName (ItemStack item, boolean returnDisplayName) { return null; }
+	static String getItemMetaName (ItemStack item, boolean returnDefaultName) { return null; }
 
 	/**
 	 * Gets a chat component for the item to use in chat

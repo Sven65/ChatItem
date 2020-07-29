@@ -1,6 +1,6 @@
 name: ${parent.name}
 version: ${parent.version}
-main: xyz.mackan.ChatItem.ChatItem
+main: xyz.mackan.ChatItems.ChatItems
 description: ${parent.description}
 author: Mackan
 depend: [LocaleLib]
