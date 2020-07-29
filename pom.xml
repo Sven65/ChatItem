@@ -25,18 +25,20 @@
                         <verbose>false</verbose>
                         <author>true</author>
                         <version>true</version>
-                        <linksource>true</linksource>
+                        <linksource>false</linksource>
                         <notimestamp>true</notimestamp>
                         <outputDirectory>javadocs-latest</outputDirectory>
                         <reportOutputDirectory>javadocs-latest</reportOutputDirectory>
                         <destDir>javadocs-latest</destDir>
                         <failOnError>false</failOnError>
+                        <detectJavaApiLink>true</detectJavaApiLink>
+                        <detectLinks>true</detectLinks>
                         <links>
                             <link>https://mackan.xyz/ChatItem/</link>
-                            <link>http://docs.oracle.com/javase/7/docs/api/</link>
+                            <link>http://docs.oracle.com/javase/8/docs/api/</link>
                             <link>https://hub.spigotmc.org/javadocs/spigot/</link>
+                            <link>https://javadoc.io/doc/org.jetbrains/annotations</link>
                         </links>
-                        <source>false</source>
                         <noqualifier>all</noqualifier>
                     </configuration>
                 </plugin>
@@ -67,17 +69,19 @@
                     <verbose>false</verbose>
                     <author>true</author>
                     <version>true</version>
-                    <linksource>true</linksource>
+                    <linksource>false</linksource>
                     <notimestamp>true</notimestamp>
                     <outputDirectory>javadocs-latest</outputDirectory>
                     <reportOutputDirectory>javadocs-latest</reportOutputDirectory>
                     <destDir>javadocs-latest</destDir>
                     <failOnError>false</failOnError>
-                    <source>false</source>
+                    <detectJavaApiLink>true</detectJavaApiLink>
+                    <detectLinks>true</detectLinks>
                     <links>
                         <link>https://mackan.xyz/ChatItem/</link>
-                        <link>http://docs.oracle.com/javase/7/docs/api/</link>
+                        <link>http://docs.oracle.com/javase/8/docs/api/</link>
                         <link>https://hub.spigotmc.org/javadocs/spigot/</link>
+                        <link>https://javadoc.io/doc/org.jetbrains/annotations</link>
                     </links>
                     <noqualifier>all</noqualifier>
                 </configuration>
