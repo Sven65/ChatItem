@@ -1,4 +1,0 @@
-# [ChatItems] config file
-showQuantities:
-  singleItems: false
-  multiple: true
