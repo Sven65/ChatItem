@@ -13,12 +13,13 @@
     <description>A plugin that lets you show items in chat</description>
 
     <build>
+        <defaultGoal>clean javadoc:javadoc javadoc:aggregate</defaultGoal>
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.0.1</version>
+                    <version>3.1.0</version>
                     <configuration>
                         <show>public</show>
                         <windowtitle>ChatItems API</windowtitle>
@@ -40,7 +41,15 @@
                             <link>https://javadoc.io/doc/org.jetbrains/annotations</link>
                         </links>
                         <noqualifier>all</noqualifier>
+                        <excludePackageNames>xyz.mackan.ChatItems.API:xyz.mackan.ChatItems.commands:xyz.mackan.ChatItems.events</excludePackageNames>
                     </configuration>
+<!--                    <dependencies>-->
+<!--                        <dependency>-->
+<!--                            <groupId>xyz.mackan</groupId>-->
+<!--                            <artifactId>ChatItems-abstraction</artifactId>-->
+<!--                            <version>1.0.8</version>-->
+<!--                        </dependency>-->
+<!--                    </dependencies>-->
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -62,29 +71,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.1</version>
-                <configuration>
-                    <show>public</show>
-                    <windowtitle>ChatItems API</windowtitle>
-                    <verbose>false</verbose>
-                    <author>true</author>
-                    <version>true</version>
-                    <linksource>false</linksource>
-                    <notimestamp>true</notimestamp>
-                    <outputDirectory>javadocs-latest</outputDirectory>
-                    <reportOutputDirectory>javadocs-latest</reportOutputDirectory>
-                    <destDir>javadocs-latest</destDir>
-                    <failOnError>false</failOnError>
-                    <detectJavaApiLink>true</detectJavaApiLink>
-                    <detectLinks>true</detectLinks>
-                    <links>
-                        <link>https://mackan.xyz/ChatItem/</link>
-                        <link>http://docs.oracle.com/javase/8/docs/api/</link>
-                        <link>https://hub.spigotmc.org/javadocs/spigot/</link>
-                        <link>https://javadoc.io/doc/org.jetbrains/annotations</link>
-                    </links>
-                    <noqualifier>all</noqualifier>
-                </configuration>
             </plugin>
         </plugins>
     </build>
