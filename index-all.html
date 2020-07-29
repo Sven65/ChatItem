@@ -69,21 +69,29 @@
 <!--   -->
 </a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
-<div class="contentContainer"><a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:X">X</a>&nbsp;<a name="I:C">
+<div class="contentContainer"><a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:X">X</a>&nbsp;<a name="I:B">
+<!--   -->
+</a>
+<h2 class="title">B</h2>
+<dl>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IPatternManager.html#byPattern">byPattern</a></span> - Static variable in interface <a href="xyz/mackan/ChatItems/util/IPatternManager.html" title="interface in xyz.mackan.ChatItems.util">IPatternManager</a></dt>
+<dd>&nbsp;</dd>
+</dl>
+<a name="I:C">
 <!--   -->
 </a>
 <h2 class="title">C</h2>
 <dl>
-<dt><a href="xyz/mackan/ChatItems/commands/ChatItemCommand.html" title="class in xyz.mackan.ChatItems.commands"><span class="typeNameLink">ChatItemCommand</span></a> - Class in <a href="xyz/mackan/ChatItems/commands/package-summary.html">xyz.mackan.ChatItems.commands</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/commands/ChatItemCommand.html#ChatItemCommand--">ChatItemCommand()</a></span> - Constructor for class <a href="xyz/mackan/ChatItems/commands/ChatItemCommand.html" title="class in xyz.mackan.ChatItems.commands">ChatItemCommand</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="xyz/mackan/ChatItems/ChatItems.html" title="class in xyz.mackan.ChatItems"><span class="typeNameLink">ChatItems</span></a> - Class in <a href="xyz/mackan/ChatItems/package-summary.html">xyz.mackan.ChatItems</a></dt>
 <dd>
 <div class="block">Base plugin</div>
 </dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItems.html#ChatItems--">ChatItems()</a></span> - Constructor for class <a href="xyz/mackan/ChatItems/ChatItems.html" title="class in xyz.mackan.ChatItems">ChatItems</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="xyz/mackan/ChatItems/ChatItemsAPI.html" title="interface in xyz.mackan.ChatItems"><span class="typeNameLink">ChatItemsAPI</span></a> - Interface in <a href="xyz/mackan/ChatItems/package-summary.html">xyz.mackan.ChatItems</a></dt>
+<dd>
+<div class="block">The main API for ChatItems</div>
+</dd>
 <dt><a href="xyz/mackan/ChatItems/util/ChatParser.html" title="class in xyz.mackan.ChatItems.util"><span class="typeNameLink">ChatParser</span></a> - Class in <a href="xyz/mackan/ChatItems/util/package-summary.html">xyz.mackan.ChatItems.util</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/ChatParser.html#ChatParser--">ChatParser()</a></span> - Constructor for class <a href="xyz/mackan/ChatItems/util/ChatParser.html" title="class in xyz.mackan.ChatItems.util">ChatParser</a></dt>
@@ -112,6 +120,10 @@
 </dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/ConfigHolder.html#ConfigHolder--">ConfigHolder()</a></span> - Constructor for class <a href="xyz/mackan/ChatItems/util/ConfigHolder.html" title="class in xyz.mackan.ChatItems.util">ConfigHolder</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItemsAPI.html#convertItemStackToJson-org.bukkit.inventory.ItemStack-">convertItemStackToJson(ItemStack)</a></span> - Method in interface <a href="xyz/mackan/ChatItems/ChatItemsAPI.html" title="interface in xyz.mackan.ChatItems">ChatItemsAPI</a></dt>
+<dd>
+<div class="block">Converts the ItemStack to JSON</div>
+</dd>
 </dl>
 <a name="I:E">
 <!--   -->
@@ -132,19 +144,59 @@
 <dd>
 <div class="block">Gets the registered ChatItemsAPI</div>
 </dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItemsAPI.html#getBoots-org.bukkit.entity.Player-">getBoots(Player)</a></span> - Method in interface <a href="xyz/mackan/ChatItems/ChatItemsAPI.html" title="interface in xyz.mackan.ChatItems">ChatItemsAPI</a></dt>
+<dd>
+<div class="block">Gets the item in the players boots slot</div>
+</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IPatternManager.html#getByPattern-java.lang.String-">getByPattern(String)</a></span> - Static method in interface <a href="xyz/mackan/ChatItems/util/IPatternManager.html" title="interface in xyz.mackan.ChatItems.util">IPatternManager</a></dt>
+<dd>
+<div class="block">Gets a ChatPattern by the regex pattern</div>
+</dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/PatternManager.html#getByPattern-java.lang.String-">getByPattern(String)</a></span> - Static method in class <a href="xyz/mackan/ChatItems/util/PatternManager.html" title="class in xyz.mackan.ChatItems.util">PatternManager</a></dt>
 <dd>
 <div class="block">Gets a ChatPattern by the regex pattern</div>
 </dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItemsAPI.html#getChestplate-org.bukkit.entity.Player-">getChestplate(Player)</a></span> - Method in interface <a href="xyz/mackan/ChatItems/ChatItemsAPI.html" title="interface in xyz.mackan.ChatItems">ChatItemsAPI</a></dt>
+<dd>
+<div class="block">Gets the item in the players chestplate slot</div>
+</dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItems.html#getDescriptionFile--">getDescriptionFile()</a></span> - Static method in class <a href="xyz/mackan/ChatItems/ChatItems.html" title="class in xyz.mackan.ChatItems">ChatItems</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IPatternManager.html#getGroups--">getGroups()</a></span> - Static method in interface <a href="xyz/mackan/ChatItems/util/IPatternManager.html" title="interface in xyz.mackan.ChatItems.util">IPatternManager</a></dt>
+<dd>
+<div class="block">Gets a regex group pattern string with all the registered patterns</div>
+</dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/PatternManager.html#getGroups--">getGroups()</a></span> - Static method in class <a href="xyz/mackan/ChatItems/util/PatternManager.html" title="class in xyz.mackan.ChatItems.util">PatternManager</a></dt>
 <dd>
 <div class="block">Gets a regex group pattern string with all the registered patterns</div>
 </dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItemsAPI.html#getHelmet-org.bukkit.entity.Player-">getHelmet(Player)</a></span> - Method in interface <a href="xyz/mackan/ChatItems/ChatItemsAPI.html" title="interface in xyz.mackan.ChatItems">ChatItemsAPI</a></dt>
+<dd>
+<div class="block">Gets the item in the players helmet slot</div>
+</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IItemUtil.html#getItemComponent-org.bukkit.inventory.ItemStack-java.lang.String-">getItemComponent(ItemStack, String)</a></span> - Static method in interface <a href="xyz/mackan/ChatItems/util/IItemUtil.html" title="interface in xyz.mackan.ChatItems.util">IItemUtil</a></dt>
+<dd>
+<div class="block">Gets a chat component for the item to use in chat</div>
+</dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/ItemUtil.html#getItemComponent-org.bukkit.inventory.ItemStack-java.lang.String-">getItemComponent(ItemStack, String)</a></span> - Static method in class <a href="xyz/mackan/ChatItems/util/ItemUtil.html" title="class in xyz.mackan.ChatItems.util">ItemUtil</a></dt>
 <dd>
 <div class="block">Gets a chat component for the item to use in chat</div>
+</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItemsAPI.html#getItemInMainHand-org.bukkit.entity.Player-">getItemInMainHand(Player)</a></span> - Method in interface <a href="xyz/mackan/ChatItems/ChatItemsAPI.html" title="interface in xyz.mackan.ChatItems">ChatItemsAPI</a></dt>
+<dd>
+<div class="block">Gets the item in the players main hand</div>
+</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItemsAPI.html#getItemInOffHand-org.bukkit.entity.Player-">getItemInOffHand(Player)</a></span> - Method in interface <a href="xyz/mackan/ChatItems/ChatItemsAPI.html" title="interface in xyz.mackan.ChatItems">ChatItemsAPI</a></dt>
+<dd>
+<div class="block">Gets the item in the players offhand</div>
+</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IItemUtil.html#getItemMetaName-org.bukkit.inventory.ItemStack-">getItemMetaName(ItemStack)</a></span> - Static method in interface <a href="xyz/mackan/ChatItems/util/IItemUtil.html" title="interface in xyz.mackan.ChatItems.util">IItemUtil</a></dt>
+<dd>
+<div class="block">Gets the displayname of the item if it has one</div>
+</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IItemUtil.html#getItemMetaName-org.bukkit.inventory.ItemStack-boolean-">getItemMetaName(ItemStack, boolean)</a></span> - Static method in interface <a href="xyz/mackan/ChatItems/util/IItemUtil.html" title="interface in xyz.mackan.ChatItems.util">IItemUtil</a></dt>
+<dd>
+<div class="block">Gets the items display name</div>
 </dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/ItemUtil.html#getItemMetaName-org.bukkit.inventory.ItemStack-">getItemMetaName(ItemStack)</a></span> - Static method in class <a href="xyz/mackan/ChatItems/util/ItemUtil.html" title="class in xyz.mackan.ChatItems.util">ItemUtil</a></dt>
 <dd>
@@ -158,11 +210,23 @@
 <dd>
 <div class="block">Gets the items name from server locale</div>
 </dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItemsAPI.html#getLegs-org.bukkit.entity.Player-">getLegs(Player)</a></span> - Method in interface <a href="xyz/mackan/ChatItems/ChatItemsAPI.html" title="interface in xyz.mackan.ChatItems">ChatItemsAPI</a></dt>
+<dd>
+<div class="block">Gets the item in the players leg slot</div>
+</dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItems.html#getLocaleManager--">getLocaleManager()</a></span> - Static method in class <a href="xyz/mackan/ChatItems/ChatItems.html" title="class in xyz.mackan.ChatItems">ChatItems</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/ChatParser.html#getStringPositions-java.lang.String-">getStringPositions(String)</a></span> - Static method in class <a href="xyz/mackan/ChatItems/util/ChatParser.html" title="class in xyz.mackan.ChatItems.util">ChatParser</a></dt>
 <dd>
 <div class="block">Gets the string positions of item placeholders from a message</div>
+</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IChatParser.html#getStringPositions-java.lang.String-">getStringPositions(String)</a></span> - Static method in interface <a href="xyz/mackan/ChatItems/util/IChatParser.html" title="interface in xyz.mackan.ChatItems.util">IChatParser</a></dt>
+<dd>
+<div class="block">Gets the string positions of item placeholders from a message</div>
+</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IItemUtil.html#getTranslatableMaterialName-org.bukkit.inventory.ItemStack-">getTranslatableMaterialName(ItemStack)</a></span> - Static method in interface <a href="xyz/mackan/ChatItems/util/IItemUtil.html" title="interface in xyz.mackan.ChatItems.util">IItemUtil</a></dt>
+<dd>
+<div class="block">Gets the translatable item material name</div>
 </dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/ItemUtil.html#getTranslatableMaterialName-org.bukkit.inventory.ItemStack-">getTranslatableMaterialName(ItemStack)</a></span> - Static method in class <a href="xyz/mackan/ChatItems/util/ItemUtil.html" title="class in xyz.mackan.ChatItems.util">ItemUtil</a></dt>
 <dd>
@@ -172,12 +236,30 @@
 <dd>
 <div class="block">Gets the bukkit version as a string</div>
 </dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IPatternManager.html#groupPattern">groupPattern</a></span> - Static variable in interface <a href="xyz/mackan/ChatItems/util/IPatternManager.html" title="interface in xyz.mackan.ChatItems.util">IPatternManager</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a name="I:I">
 <!--   -->
 </a>
 <h2 class="title">I</h2>
 <dl>
+<dt><a href="xyz/mackan/ChatItems/util/IChatParser.html" title="interface in xyz.mackan.ChatItems.util"><span class="typeNameLink">IChatParser</span></a> - Interface in <a href="xyz/mackan/ChatItems/util/package-summary.html">xyz.mackan.ChatItems.util</a></dt>
+<dd>
+<div class="block">Chat parsing utilities</div>
+</dd>
+<dt><a href="xyz/mackan/ChatItems/util/IItemUtil.html" title="interface in xyz.mackan.ChatItems.util"><span class="typeNameLink">IItemUtil</span></a> - Interface in <a href="xyz/mackan/ChatItems/util/package-summary.html">xyz.mackan.ChatItems.util</a></dt>
+<dd>
+<div class="block">Utilities for Items</div>
+</dd>
+<dt><a href="xyz/mackan/ChatItems/util/IPatternManager.html" title="interface in xyz.mackan.ChatItems.util"><span class="typeNameLink">IPatternManager</span></a> - Interface in <a href="xyz/mackan/ChatItems/util/package-summary.html">xyz.mackan.ChatItems.util</a></dt>
+<dd>
+<div class="block">Manager class for ChatPatterns</div>
+</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItemsAPI.html#isAir-org.bukkit.inventory.ItemStack-">isAir(ItemStack)</a></span> - Method in interface <a href="xyz/mackan/ChatItems/ChatItemsAPI.html" title="interface in xyz.mackan.ChatItems">ChatItemsAPI</a></dt>
+<dd>
+<div class="block">Checks if an ItemStack is air</div>
+</dd>
 <dt><a href="xyz/mackan/ChatItems/util/ItemUtil.html" title="class in xyz.mackan.ChatItems.util"><span class="typeNameLink">ItemUtil</span></a> - Class in <a href="xyz/mackan/ChatItems/util/package-summary.html">xyz.mackan.ChatItems.util</a></dt>
 <dd>
 <div class="block">Utilities for Items</div>
@@ -198,13 +280,9 @@
 </a>
 <h2 class="title">O</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/commands/ChatItemCommand.html#onCommand-org.bukkit.command.CommandSender-org.bukkit.command.Command-java.lang.String-java.lang.String:A-">onCommand(CommandSender, Command, String, String[])</a></span> - Method in class <a href="xyz/mackan/ChatItems/commands/ChatItemCommand.html" title="class in xyz.mackan.ChatItems.commands">ChatItemCommand</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItems.html#onDisable--">onDisable()</a></span> - Method in class <a href="xyz/mackan/ChatItems/ChatItems.html" title="class in xyz.mackan.ChatItems">ChatItems</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItems.html#onEnable--">onEnable()</a></span> - Method in class <a href="xyz/mackan/ChatItems/ChatItems.html" title="class in xyz.mackan.ChatItems">ChatItems</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/events/PlayerChatEventListener.html#onPlayerChat-org.bukkit.event.player.AsyncPlayerChatEvent-">onPlayerChat(AsyncPlayerChatEvent)</a></span> - Method in class <a href="xyz/mackan/ChatItems/events/PlayerChatEventListener.html" title="class in xyz.mackan.ChatItems.events">PlayerChatEventListener</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a name="I:P">
@@ -222,16 +300,24 @@
 </dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/PatternManager.html#PatternManager--">PatternManager()</a></span> - Constructor for class <a href="xyz/mackan/ChatItems/util/PatternManager.html" title="class in xyz.mackan.ChatItems.util">PatternManager</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="xyz/mackan/ChatItems/events/PlayerChatEventListener.html" title="class in xyz.mackan.ChatItems.events"><span class="typeNameLink">PlayerChatEventListener</span></a> - Class in <a href="xyz/mackan/ChatItems/events/package-summary.html">xyz.mackan.ChatItems.events</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/events/PlayerChatEventListener.html#PlayerChatEventListener--">PlayerChatEventListener()</a></span> - Constructor for class <a href="xyz/mackan/ChatItems/events/PlayerChatEventListener.html" title="class in xyz.mackan.ChatItems.events">PlayerChatEventListener</a></dt>
-<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IPatternManager.html#patterns">patterns</a></span> - Static variable in interface <a href="xyz/mackan/ChatItems/util/IPatternManager.html" title="interface in xyz.mackan.ChatItems.util">IPatternManager</a></dt>
+<dd>
+<div class="block">Registered patterns</div>
+</dd>
 </dl>
 <a name="I:R">
 <!--   -->
 </a>
 <h2 class="title">R</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IPatternManager.html#registerPattern-xyz.mackan.ChatItems.types.ChatPattern.Type-java.lang.String-">registerPattern(ChatPattern.Type, String)</a></span> - Static method in interface <a href="xyz/mackan/ChatItems/util/IPatternManager.html" title="interface in xyz.mackan.ChatItems.util">IPatternManager</a></dt>
+<dd>
+<div class="block">Registers a new ChatPattern</div>
+</dd>
+<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/IPatternManager.html#registerPattern-xyz.mackan.ChatItems.types.ChatPattern-">registerPattern(ChatPattern)</a></span> - Static method in interface <a href="xyz/mackan/ChatItems/util/IPatternManager.html" title="interface in xyz.mackan.ChatItems.util">IPatternManager</a></dt>
+<dd>
+<div class="block">Registers a new ChatPattern</div>
+</dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/util/PatternManager.html#registerPattern-xyz.mackan.ChatItems.types.ChatPattern.Type-java.lang.String-">registerPattern(ChatPattern.Type, String)</a></span> - Static method in class <a href="xyz/mackan/ChatItems/util/PatternManager.html" title="class in xyz.mackan.ChatItems.util">PatternManager</a></dt>
 <dd>
 <div class="block">Registers a new ChatPattern</div>
@@ -250,8 +336,6 @@
 <dd>
 <div class="block">Sets if ChatItems should handle chat</div>
 </dd>
-<dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/events/PlayerChatEventListener.html#shouldExitLoop-org.bukkit.inventory.ItemStack-">shouldExitLoop(ItemStack)</a></span> - Method in class <a href="xyz/mackan/ChatItems/events/PlayerChatEventListener.html" title="class in xyz.mackan.ChatItems.events">PlayerChatEventListener</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="xyz/mackan/ChatItems/ChatItems.html#shouldHandleChat">shouldHandleChat</a></span> - Static variable in class <a href="xyz/mackan/ChatItems/ChatItems.html" title="class in xyz.mackan.ChatItems">ChatItems</a></dt>
 <dd>
 <div class="block">If the ChatItems plugin should handle chat</div>
@@ -311,16 +395,12 @@ the order they are declared.</div>
 <dl>
 <dt><a href="xyz/mackan/ChatItems/package-summary.html">xyz.mackan.ChatItems</a> - package xyz.mackan.ChatItems</dt>
 <dd>&nbsp;</dd>
-<dt><a href="xyz/mackan/ChatItems/commands/package-summary.html">xyz.mackan.ChatItems.commands</a> - package xyz.mackan.ChatItems.commands</dt>
-<dd>&nbsp;</dd>
-<dt><a href="xyz/mackan/ChatItems/events/package-summary.html">xyz.mackan.ChatItems.events</a> - package xyz.mackan.ChatItems.events</dt>
-<dd>&nbsp;</dd>
 <dt><a href="xyz/mackan/ChatItems/types/package-summary.html">xyz.mackan.ChatItems.types</a> - package xyz.mackan.ChatItems.types</dt>
 <dd>&nbsp;</dd>
 <dt><a href="xyz/mackan/ChatItems/util/package-summary.html">xyz.mackan.ChatItems.util</a> - package xyz.mackan.ChatItems.util</dt>
 <dd>&nbsp;</dd>
 </dl>
-<a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:X">X</a>&nbsp;</div>
+<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:X">X</a>&nbsp;</div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav"><a name="navbar.bottom">
 <!--   -->
