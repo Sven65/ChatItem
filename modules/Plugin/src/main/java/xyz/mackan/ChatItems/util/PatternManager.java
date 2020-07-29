@@ -1,8 +1,7 @@
 package xyz.mackan.ChatItems.util;
 
 import org.jetbrains.annotations.Nullable;
-import xyz.mackan.chatitems.types.ChatPattern;
-import xyz.mackan.chatitems.util.IPatternManager;
+import xyz.mackan.ChatItems.types.ChatPattern;
 
 /**
  * Manager class for ChatPatterns

@@ -5,7 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import xyz.mackan.chatitems.ChatItemsAPI;
+import xyz.mackan.ChatItems.ChatItemsAPI;
 
 public class ChatItemsAPI_v1_8_R3 implements ChatItemsAPI {
 	public ChatItemsAPI_v1_8_R3 () {}

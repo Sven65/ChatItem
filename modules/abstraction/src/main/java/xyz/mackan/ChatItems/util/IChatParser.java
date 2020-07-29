@@ -1,6 +1,6 @@
-package xyz.mackan.chatitems.util;
+package xyz.mackan.ChatItems.util;
 
-import xyz.mackan.chatitems.types.StringPosition;
+import xyz.mackan.ChatItems.types.StringPosition;
 
 import java.util.List;
 

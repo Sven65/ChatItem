@@ -1,4 +1,4 @@
-package xyz.mackan.chatitems.util;
+package xyz.mackan.ChatItems.util;
 
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.inventory.ItemStack;

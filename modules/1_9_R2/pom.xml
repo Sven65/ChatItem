@@ -40,8 +40,9 @@
 
         <dependency>
             <groupId>xyz.mackan</groupId>
-            <artifactId>ChatItems-plugin</artifactId>
+            <artifactId>ChatItems-abstraction</artifactId>
             <version>${project.parent.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

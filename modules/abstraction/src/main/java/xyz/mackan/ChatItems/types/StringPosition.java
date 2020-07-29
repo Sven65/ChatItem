@@ -1,4 +1,4 @@
-package xyz.mackan.chatitems.types;
+package xyz.mackan.ChatItems.types;
 
 /**
  * Utility class for ChatPattern positions in a string

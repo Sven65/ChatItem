@@ -10,8 +10,7 @@ import xyz.mackan.ChatItems.events.PlayerChatEventListener;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.mackan.ChatItems.util.ConfigHolder;
 import xyz.mackan.ChatItems.util.PatternManager;
-import xyz.mackan.chatitems.ChatItemsAPI;
-import xyz.mackan.chatitems.types.ChatPattern;
+import xyz.mackan.ChatItems.types.ChatPattern;
 
 import java.util.logging.Level;
 

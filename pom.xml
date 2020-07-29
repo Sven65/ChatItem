@@ -91,23 +91,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.PikaMug</groupId>
-            <artifactId>LocaleLib</artifactId>
-            <version>1.6</version>
-        </dependency>
-        <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>13.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-            <name>jitpack</name>
-        </repository>
-    </repositories>
 </project>

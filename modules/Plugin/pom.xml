@@ -55,6 +55,14 @@
         </resources>
     </build>
 
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+            <name>jitpack</name>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
@@ -68,6 +76,12 @@
             <artifactId>ItemNames</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.PikaMug</groupId>
+            <artifactId>LocaleLib</artifactId>
+            <version>1.6</version>
         </dependency>
 
         <dependency>

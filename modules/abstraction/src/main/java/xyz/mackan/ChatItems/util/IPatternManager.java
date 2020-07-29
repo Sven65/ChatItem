@@ -1,6 +1,6 @@
-package xyz.mackan.chatitems.util;
+package xyz.mackan.ChatItems.util;
 
-import xyz.mackan.chatitems.types.ChatPattern;
+import xyz.mackan.ChatItems.types.ChatPattern;
 
 import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;

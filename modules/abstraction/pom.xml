@@ -12,7 +12,7 @@
         <relativePath>../../</relativePath>
     </parent>
 
-
+    <groupId>xyz.mackan</groupId>
     <artifactId>ChatItems-abstraction</artifactId>
     <version>${project.parent.version}</version>
 

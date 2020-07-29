@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../API/target/classes" />
+    <output-test url="file://$MODULE_DIR$/../API/target/test-classes" />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot:1.13.2-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.github.PikaMug:LocaleLib:1.6" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.jetbrains:annotations:13.0" level="project" />
+  </component>
+</module>

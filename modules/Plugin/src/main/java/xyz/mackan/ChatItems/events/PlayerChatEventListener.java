@@ -10,8 +10,8 @@ import org.bukkit.inventory.ItemStack;
 import xyz.mackan.ChatItems.ChatItems;
 import xyz.mackan.ChatItems.util.ChatParser;
 import xyz.mackan.ChatItems.util.ItemUtil;
-import xyz.mackan.chatitems.ChatItemsAPI;
-import xyz.mackan.chatitems.types.StringPosition;
+import xyz.mackan.ChatItems.ChatItemsAPI;
+import xyz.mackan.ChatItems.types.StringPosition;
 
 import java.util.List;
 

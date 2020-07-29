@@ -1,4 +1,4 @@
-package xyz.mackan.chatitems;
+package xyz.mackan.ChatItems;
 
 import org.jetbrains.annotations.Nullable;
 import org.bukkit.entity.Player;

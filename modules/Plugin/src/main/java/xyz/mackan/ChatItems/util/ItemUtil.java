@@ -12,8 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import xyz.mackan.ChatItems.ChatItems;
 import xyz.mackan.ItemNames.ItemNames;
-import xyz.mackan.chatitems.ChatItemsAPI;
-import xyz.mackan.chatitems.util.IItemUtil;
+import xyz.mackan.ChatItems.ChatItemsAPI;
 import org.jetbrains.annotations.Nullable;
 
 /**

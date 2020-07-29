@@ -1,8 +1,8 @@
 package xyz.mackan.ChatItems.util;
 
-import xyz.mackan.chatitems.types.ChatPattern;
-import xyz.mackan.chatitems.types.StringPosition;
-import xyz.mackan.chatitems.util.IChatParser;
+
+import xyz.mackan.ChatItems.types.ChatPattern;
+import xyz.mackan.ChatItems.types.StringPosition;
 
 import java.util.ArrayList;
 import java.util.List;

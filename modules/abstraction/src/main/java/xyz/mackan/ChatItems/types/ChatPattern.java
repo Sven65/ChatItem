@@ -1,4 +1,4 @@
-package xyz.mackan.chatitems.types;
+package xyz.mackan.ChatItems.types;
 
 public class ChatPattern {
 	/**
