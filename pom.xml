@@ -34,12 +34,12 @@
                         <failOnError>false</failOnError>
                         <detectJavaApiLink>true</detectJavaApiLink>
                         <detectLinks>true</detectLinks>
-                        <links>
-                            <link>https://mackan.xyz/ChatItem/</link>
-                            <link>http://docs.oracle.com/javase/8/docs/api/</link>
-                            <link>https://hub.spigotmc.org/javadocs/spigot/</link>
-                            <link>https://javadoc.io/doc/org.jetbrains/annotations</link>
-                        </links>
+<!--                        <links>-->
+<!--                            <link>https://mackan.xyz/ChatItem/</link>-->
+<!--                            <link>http://docs.oracle.com/javase/8/docs/api/</link>-->
+<!--                            <link>https://hub.spigotmc.org/javadocs/spigot/</link>-->
+<!--                            <link>https://javadoc.io/doc/org.jetbrains/annotations</link>-->
+<!--                        </links>-->
                         <noqualifier>all</noqualifier>
                         <excludePackageNames>xyz.mackan.ChatItems.API:xyz.mackan.ChatItems.commands:xyz.mackan.ChatItems.events</excludePackageNames>
                     </configuration>
