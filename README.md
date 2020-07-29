@@ -1,8 +1,6 @@
 # [ChatItems]
 Show your items in chat!
 
-JavaDocs can be found [here](https://mackan.xyz/ChatItems/).
-
 # Usage with your plugin
 
 ### Requirements
@@ -17,22 +15,22 @@ Supports versions after 1.8.
 
 ```xml
 <repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
+	<repository>
+		<id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+	</repository>
 </repositories>
+<dependencies>
+    <dependency>
+        <groupId>com.github.Sven65</groupId>
+        <artifactId>ChatItem</artifactId>
+        <version>1.7</version>
+        <scope>provided</scope>
+    </dependency>
+</dependencies>
 ```
+# Documentation
 
-```xml
-<dependency>
-    <groupId>com.github.Sven65</groupId>
-    <artifactId>ChatItems</artifactId>
-    <version>1.0.8</version>
-    <scope>provided</scope>
-</dependency>
-```
+See the [wiki](https://github.com/Sven65/ChatItem/wiki) for documentation and examples
 
-# Code Examples
-
-To get the name of an ItemStack, simply call `ItemNames.getItemName(ItemStack);`
+JavaDocs can be found [here](https://mackan.xyz/ChatItem/).
