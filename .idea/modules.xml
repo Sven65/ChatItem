@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/abstraction/ChatItems-API.iml" filepath="$PROJECT_DIR$/abstraction/ChatItems-API.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Plugin/ChatItems-Plugin.iml" filepath="$PROJECT_DIR$/Plugin/ChatItems-Plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/abstraction/abstraction.iml" filepath="$PROJECT_DIR$/abstraction/abstraction.iml" />
+    </modules>
+  </component>
+</project>
