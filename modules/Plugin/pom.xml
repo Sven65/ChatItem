@@ -72,7 +72,7 @@
         </dependency>
 
         <dependency>
-            <groupId>xyz.mackan</groupId>
+            <groupId>com.github.Sven65.Item-Names</groupId>
             <artifactId>ItemNames</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>
