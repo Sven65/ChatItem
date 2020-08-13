@@ -3,15 +3,15 @@
   <parent>
     <artifactId>ChatItems-parent</artifactId>
     <groupId>xyz.mackan</groupId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>xyz.mackan</groupId>
   <artifactId>ChatItems</artifactId>
-  <version>${project.parent.version}</version>
+  <version>1.0.9</version>
   <build>
-    <defaultGoal>clean install javadoc:javadoc</defaultGoal>
+    <defaultGoal>clean install</defaultGoal>
     <resources>
       <resource>
         <targetPath>.</targetPath>

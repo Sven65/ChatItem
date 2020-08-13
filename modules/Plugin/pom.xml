@@ -8,13 +8,13 @@
     <parent>
         <artifactId>ChatItems-parent</artifactId>
         <groupId>xyz.mackan</groupId>
-        <version>1.0.8</version>
+        <version>1.0.9</version>
         <relativePath>../../</relativePath>
     </parent>
 
     <groupId>xyz.mackan</groupId>
     <artifactId>ChatItems</artifactId>
-    <version>${project.parent.version}</version>
+    <version>1.0.9</version>
     <packaging>jar</packaging>
 
     <build>
@@ -74,7 +74,7 @@
         <dependency>
             <groupId>com.github.Sven65.Item-Names</groupId>
             <artifactId>ItemNames</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
             <scope>compile</scope>
         </dependency>
 
@@ -87,6 +87,13 @@
         <dependency>
             <groupId>xyz.mackan</groupId>
             <artifactId>ChatItems-abstraction</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>xyz.mackan</groupId>
+            <artifactId>ChatItems-1_16_R2</artifactId>
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>

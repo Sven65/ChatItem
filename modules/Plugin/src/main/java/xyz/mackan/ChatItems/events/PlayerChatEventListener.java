@@ -26,6 +26,7 @@ public class PlayerChatEventListener implements Listener {
 		return false;
 	}
 
+
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onPlayerChat (AsyncPlayerChatEvent event) {
 		if (!ChatItems.shouldHandleChat) return;
@@ -34,6 +35,7 @@ public class PlayerChatEventListener implements Listener {
 		Player player = event.getPlayer();
 
 		String format = event.getFormat();
+
 		ItemStack itemInHand = api.getItemInMainHand(player);
 		ItemStack itemInOffHand = api.getItemInOffHand(player);
 

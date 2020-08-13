@@ -32,6 +32,7 @@ public class ChatItems extends JavaPlugin {
 
 	private static ChatItemsAPI api;
 
+
 	/**
 	 * If the ChatItems plugin should handle chat
 	 */
@@ -121,6 +122,7 @@ public class ChatItems extends JavaPlugin {
 	public void onDisable() {
 		getLogger().info("[ChatItems] is disabled.");
 	}
+
 
 	/**
 	 * Gets the registered ChatItemsAPI

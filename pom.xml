@@ -7,7 +7,7 @@
 
     <groupId>xyz.mackan</groupId>
     <artifactId>ChatItems-parent</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <packaging>pom</packaging>
 
     <description>A plugin that lets you show items in chat</description>
@@ -91,6 +91,7 @@
         <module>modules/1_14_R1</module>
         <module>modules/1_15_R1</module>
         <module>modules/1_16_R1</module>
+        <module>modules/1_16_R2</module>
     </modules>
 
     <dependencies>
